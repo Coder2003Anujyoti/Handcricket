@@ -1,0 +1,452 @@
+[
+  {
+    "id": 1,
+    "image": "https://static.wikia.nocookie.net/ben10/images/2/20/Heatblast_omniverse_official.png/revision/latest?cb=20230814111634",
+    "name": "Heatblast"
+  },
+  {
+    "id": 2,
+    "image": "https://static.wikia.nocookie.net/ben10/images/9/9a/Wildmutt_OS_Omnitrix_side.png/revision/latest?cb=20210314021203",
+    "name": "Wildmutt"
+  },
+  {
+    "id": 3,
+    "image": "https://static.wikia.nocookie.net/ben10/images/a/ab/Diamondhead_os.png/revision/latest?cb=20210220164254",
+    "name": "Diamondhead"
+  },
+  {
+    "id": 4,
+    "image": "https://static.wikia.nocookie.net/ben10/images/8/85/XLR8.png/revision/latest?cb=20170401222738",
+    "name": "XLR8"
+  },
+  {
+    "id": 5,
+    "image": "https://static.wikia.nocookie.net/ben10/images/e/e9/Grey_Matter.png/revision/latest?cb=20140510174853",
+    "name": "Grey-Matter"
+  },
+  {
+    "id": 6,
+    "image": "https://static.wikia.nocookie.net/ben10/images/d/d0/Four_arms_os_render.png/revision/latest?cb=20141129030943",
+    "name": "Four-Arms"
+  },
+  {
+    "id": 7,
+    "image": "https://static.wikia.nocookie.net/ben10/images/4/4d/Stinkfly_os_render.png/revision/latest?cb=20141129032451",
+    "name": "Stinkfly"
+  },
+  {
+    "id": 8,
+    "image": "https://static.wikia.nocookie.net/ben10/images/9/98/Ripjaws.png/revision/latest?cb=20210314020024",
+    "name": "Ripjaws"
+  },
+  {
+    "id": 9,
+    "image": "https://static.wikia.nocookie.net/ben10/images/6/62/Upgrade_Model.png/revision/latest?cb=20200511092500",
+    "name": "Upgrade"
+  },
+  {
+    "id": 10,
+    "image": "https://static.wikia.nocookie.net/ben10/images/a/a3/GhostfreakPose2.png/revision/latest?cb=20210313173053",
+    "name": "Ghostfreak"
+  },
+  {
+    "id": 11,
+    "image": "https://static.wikia.nocookie.net/ben10/images/1/15/Cannonbolt.png/revision/latest?cb=20210314014123",
+    "name": "Cannonbolt"
+  },
+  {
+    "id": 12,
+    "image": "https://static.wikia.nocookie.net/ben10/images/2/23/OmniverseWildvine.png/revision/latest?cb=20231208212714",
+    "name": "Wildvine"
+  },
+  {
+    "id": 13,
+    "image": "https://static.wikia.nocookie.net/ben10/images/f/fe/Spitter_Model.png/revision/latest?cb=20180824040912",
+    "name": "Spitter"
+  },
+  {
+    "id": 14,
+    "image": "https://static.wikia.nocookie.net/ben10/images/5/5b/Buzzshock_Model_Front.png/revision/latest?cb=20180824044631",
+    "name": "Buzzshock"
+  },
+  {
+    "id": 15,
+    "image": "https://static.wikia.nocookie.net/ben10/images/e/e6/OV_Teen_Arctiguana.png/revision/latest?cb=20200518004848",
+    "name": "Arctiguana"
+  },
+  {
+    "id": 16,
+    "image": "https://static.wikia.nocookie.net/ben10/images/3/34/Benwolf_Model.png/revision/latest?cb=20200510184605",
+    "name": "Blitzwolfer"
+  },
+  {
+    "id": 17,
+    "image": "https://static.wikia.nocookie.net/ben10/images/7/71/Upchuck_tabber.png/revision/latest?cb=20141129033205",
+    "name": "Upchuck"
+  },
+  {
+    "id": 18,
+    "image": "https://static.wikia.nocookie.net/ben10/images/e/ea/Ben-10-omniverse-ben-snare-oh.png/revision/latest?cb=20141129032220",
+    "name": "Snare-Oh"
+  },
+  {
+    "id": 19,
+    "image": "https://static.wikia.nocookie.net/ben10/images/7/7e/Benvicktor_2.png/revision/latest?cb=20200511091805",
+    "name": "Frankenstrike"
+  },
+  {
+    "id": 20,
+    "image": "https://static.wikia.nocookie.net/ben10/images/8/8f/Ditto_Model.png/revision/latest?cb=20200511092800",
+    "name": "Ditto"
+  },
+  {
+    "id": 21,
+    "image": "https://static.wikia.nocookie.net/ben10/images/a/ad/OmniverseEyeGuy.png/revision/latest?cb=20230814031513",
+    "name": "Eye-Guy"
+  },
+  {
+    "id": 22,
+    "image": "https://static.wikia.nocookie.net/ben10/images/d/d4/Way_Big_OV_Artwork.PNG/revision/latest?cb=20231206011944",
+    "name": "Way-Big"
+  },
+  {
+    "id": 23,
+    "image": "https://static.wikia.nocookie.net/ben10/images/d/d0/Swampfire_uaf_official.png/revision/latest?cb=20141129034947",
+    "name": "Swampfire"
+  },
+  {
+    "id": 24,
+    "image": "https://static.wikia.nocookie.net/ben10/images/c/c8/EEAFT.png/revision/latest?cb=20171022040816",
+    "name": "Echo-Echo"
+  },
+  {
+    "id": 25,
+    "image": "https://static.wikia.nocookie.net/ben10/images/f/fa/Humungousaur_UAF_Model.png/revision/latest?cb=20190731071035",
+    "name": "Humungousaur"
+  },
+  {
+    "id": 26,
+    "image": "https://static.wikia.nocookie.net/ben10/images/6/61/JetrayProfilePicture.png/revision/latest?cb=20200921154751",
+    "name": "Jetray"
+  },
+  {
+    "id": 27,
+    "image": "https://static.wikia.nocookie.net/ben10/images/9/9e/OV_BigChill.png/revision/latest?cb=20200601030925",
+    "name": "Big-Chill"
+  },
+  {
+    "id": 28,
+    "image": "https://static.wikia.nocookie.net/ben10/images/f/fb/OV_ChromastoneNoSkurd.png/revision/latest?cb=20200912071313",
+    "name": "Chromastone"
+  },
+  {
+    "id": 29,
+    "image": "https://static.wikia.nocookie.net/ben10/images/e/e9/Accurate_Brainstorm.png/revision/latest?cb=20210314023450",
+    "name": "Brainstorm"
+  },
+  {
+    "id": 30,
+    "image": "https://static.wikia.nocookie.net/ben10/images/8/84/Spidermonkey_UAF.png/revision/latest?cb=20210320001700",
+    "name": "Spidermonkey"
+  },
+  {
+    "id": 31,
+    "image": "https://static.wikia.nocookie.net/ben10/images/3/36/Goop_Clear.png/revision/latest?cb=20181002093250",
+    "name": "Goop"
+  },
+  {
+    "id": 32,
+    "image": "https://static.wikia.nocookie.net/ben10/images/0/09/Lodestar_OV_Stand.png/revision/latest?cb=20230813232252",
+    "name": "Lodestar"
+  },
+  {
+    "id": 33,
+    "image": "https://static.wikia.nocookie.net/ben10/images/c/cd/UAF-Nanomech.png/revision/latest?cb=20191119094941",
+    "name": "Nanomech"
+  },
+  {
+    "id": 34,
+    "image": "https://static.wikia.nocookie.net/ben10/images/5/56/Rath_1.png/revision/latest?cb=20210314024327",
+    "name": "Rath"
+  },
+  {
+    "id": 35,
+    "image": "https://static.wikia.nocookie.net/ben10/images/7/7b/Waterguy.png/revision/latest?cb=20210314025341",
+    "name": "Waterhazard"
+  },
+  {
+    "id": 36,
+    "image": "https://static.wikia.nocookie.net/ben10/images/e/e1/Ns457Wv.png/revision/latest?cb=20210314022620",
+    "name": "Ampfibian"
+  },
+  {
+    "id": 37,
+    "image": "https://static.wikia.nocookie.net/ben10/images/f/f3/Armodrillo_2.png/revision/latest?cb=20210314023024",
+    "name": "Armodrillo"
+  },
+  {
+    "id": 38,
+    "image": "https://static.wikia.nocookie.net/ben10/images/4/4d/Terraspin_2T.png/revision/latest?cb=20200521143609",
+    "name": "Terraspin"
+  },
+  {
+    "id": 39,
+    "image": "https://static.wikia.nocookie.net/ben10/images/9/97/NRG.png/revision/latest?cb=20200523084245",
+    "name": "NRG"
+  },
+  {
+    "id": 40,
+    "image": "https://static.wikia.nocookie.net/ben10/images/6/6e/Clocky.png/revision/latest?cb=20210515172447",
+    "name": "Clockwork"
+  },
+  {
+    "id": 41,
+    "image": "https://static.wikia.nocookie.net/ben10/images/9/95/Eatle_omniverse_official.png/revision/latest?cb=20220727052438",
+    "name": "Eatle"
+  },
+  {
+    "id": 42,
+    "image": "https://static.wikia.nocookie.net/ben10/images/1/1d/Jury_rigg_ov_official.png/revision/latest?cb=20141129041726",
+    "name": "Juryrigg"
+  },
+  {
+    "id": 43,
+    "image": "https://static.wikia.nocookie.net/ben10/images/a/a6/Shocksquatch_omniverse_official.png/revision/latest?cb=20210515162700",
+    "name": "Shocksquatch"
+  },
+    {
+        "id": 44,
+    "image": "https://static.wikia.nocookie.net/ben10/images/7/7e/Standing_Overflow.png/revision/latest?cb=20201111080127",
+    "name": "Overflow"
+  },
+  {
+        "id": 45,
+    "image": "https://static.wikia.nocookie.net/ben10/images/8/81/Waybad2.png/revision/latest?cb=20200518124144",
+    "name": "Way Bads"
+  },
+  {
+        "id": 46,
+    "image": "https://static.wikia.nocookie.net/ben10/images/0/0f/Vilgax_af_render-2.png/revision/latest?cb=20200907120920",
+    "name": "Vilgax"
+  },
+  {
+        "id": 47,
+    "image": "https://static.wikia.nocookie.net/ben10/images/9/94/Slapback_Standing_Pose.PNG/revision/latest?cb=20210725094945",
+    "name": "Slapback"
+  },
+  {
+        "id": 48,
+    "image": "https://static.wikia.nocookie.net/ben10/images/9/9a/Rockshock.png/revision/latest?cb=20180630095603",
+    "name": "Shock-Rock"
+  },
+  {
+        "id": 49,
+    "image": "https://static.wikia.nocookie.net/ben10/images/f/f5/Surge_Arcade_Render.png/revision/latest?cb=20210411091943",
+    "name": "Surge"
+  },
+  {
+        "id": 50,
+    "image": "https://static.wikia.nocookie.net/ben10/images/3/38/OV_AlienX.png/revision/latest?cb=20231210025200",
+    "name": "AlienX"
+  },
+  {
+        "id": 51,
+    "image": "https://static.wikia.nocookie.net/ben10/images/f/f3/Teen_Feedback_Stand.png/revision/latest?cb=20200522083458",
+    "name": "Feedback"
+  },
+  {
+        "id": 52,
+    "image": "https://static.wikia.nocookie.net/ben10/images/5/5b/Bloxx.png/revision/latest?cb=20230814040045",
+    "name": "Bloxx"
+  },
+  {
+        "id": 53,
+    "image": "https://static.wikia.nocookie.net/ben10/images/e/ed/Gravattack_Pose.png/revision/latest?cb=20220802065601",
+    "name": "Gravattack"
+  },
+  {
+        "id": 54,
+    "image": "https://static.wikia.nocookie.net/ben10/images/4/43/OV_Crashhopper.png/revision/latest?cb=20200613085908",
+    "name": "Crashhopper"
+  },
+  {
+        "id": 55,
+    "image": "https://static.wikia.nocookie.net/ben10/images/2/2c/Ball_weevil_omniverse_official.png/revision/latest?cb=20220727052729",
+    "name": "Ball-Weevil"
+  },
+  {
+        "id": 56,
+    "image": "https://static.wikia.nocookie.net/ben10/images/0/0c/Walky.png/revision/latest?cb=20200522085205",
+    "name": "Walkatrout"
+  },
+  {
+        "id": 57,
+    "image": "https://static.wikia.nocookie.net/ben10/images/4/4b/Pesky_Dust_2.png/revision/latest?cb=20210730163745",
+    "name": "Pesky Dust"
+  },
+  {
+        "id": 58,
+    "image": "https://static.wikia.nocookie.net/ben10/images/7/70/Mole-Stache_official.png/revision/latest?cb=20200603082802",
+    "name": "Mole-Stache"
+  },
+  {
+        "id": 59,
+    "image": "https://static.wikia.nocookie.net/ben10/images/8/8a/OmniverseTheWorst.png/revision/latest?cb=20230611221648",
+    "name": "The-Worst"
+  },
+  {
+        "id": 60,
+    "image": "https://static.wikia.nocookie.net/ben10/images/4/4b/Kicken_Hawk_Omniverse_official.png/revision/latest?cb=20230814035847",
+    "name": "Kickin-Hawk"
+  },
+  {
+        "id": 61,
+    "image": "https://static.wikia.nocookie.net/ben10/images/0/0d/Toepick_art.png/revision/latest?cb=20231208212716",
+    "name": "Toepick"
+  },
+  {
+        "id": 62,
+    "image": "https://static.wikia.nocookie.net/ben10/images/a/a2/Astrodactyl_Wings.png/revision/latest?cb=20200522084519",
+    "name": "Astrodactyl"
+  },
+  {
+        "id": 63,
+    "image": "https://static.wikia.nocookie.net/ben10/images/2/26/Bullfrag_OV_4.png/revision/latest?cb=20141129043410",
+    "name": "Bullfrag"
+  },
+  {
+        "id": 64,
+    "image": "https://static.wikia.nocookie.net/ben10/images/c/c5/OmniverseAtomix.png/revision/latest?cb=20200601012256",
+    "name": "Atomix"
+  },
+  {
+        "id": 65,
+    "image": "https://static.wikia.nocookie.net/ben10/images/e/eb/Gutrot_official.png/revision/latest?cb=20141129043754",
+    "name": "Gutrot"
+  },
+  {
+        "id": 66,
+    "image": "https://static.wikia.nocookie.net/ben10/images/7/7a/Whampire_facebook_profileT.png/revision/latest?cb=20171022040815",
+    "name": "Whampire"
+  },
+    {
+        "id": 67,
+    "image": "https://static.wikia.nocookie.net/ben10/images/3/37/Yetta.png/revision/latest?cb=20140718202713",
+    "name": "Yetta"
+  },
+    {
+        "id": 68,
+    "image": "https://static.wikia.nocookie.net/ben10/images/7/75/Electric_jorts.png/revision/latest?cb=20200615035826",
+    "name": "Zzzakt"
+  },
+    {
+        "id": 69,
+    "image": "https://static.wikia.nocookie.net/ben10/images/c/ce/Vexx_ren.png/revision/latest?cb=20210515161702",
+    "name": "Vexx"
+  },
+    {
+        "id": 70,
+    "image": "https://static.wikia.nocookie.net/ben10/images/a/a4/Ventrilosquid_no_background.png/revision/latest?cb=20210417232427",
+    "name": "Ventrilosquid"
+  },
+    {
+        "id": 71,
+    "image": "https://static.wikia.nocookie.net/ben10/images/b/b6/Viktor_model.png/revision/latest?cb=20200527132503",
+    "name": "Dr.Viktor"
+  },
+    {
+        "id":72,
+    "image": "https://static.wikia.nocookie.net/ben10/images/2/2b/Sunder_OV.png/revision/latest?cb=20210515162506",
+    "name": "Sunder"
+  },
+      {
+        "id":73,
+    "image": "https://static.wikia.nocookie.net/ben10/images/2/25/OfficialAzmuth.png/revision/latest?cb=20141116195120",
+    "name": "Azmuth"
+  },
+      {
+        "id":74,
+    "image": "https://static.wikia.nocookie.net/ben10/images/2/27/Universal_Court_Highbreed.png/revision/latest?cb=20141115152710",
+    "name": "Bailiff"
+  },
+      {
+        "id":75,
+    "image": "https://static.wikia.nocookie.net/ben10/images/d/d3/UltimateAlienChamAlien.png/revision/latest?cb=20190820072643",
+    "name": "Chamalien"
+  },
+      {
+        "id":76,
+    "image": "https://static.wikia.nocookie.net/ben10/images/f/f4/FasttrackUAOfficial.png/revision/latest?cb=20240512052124",
+    "name": "Fasttrack"
+  },
+        {
+        "id":77,
+    "image": "https://static.wikia.nocookie.net/ben10/images/2/22/Grack_Model.png/revision/latest?cb=20210515170349",
+    "name": "Grack"
+  },
+        {
+        "id":78,
+    "image": "https://static.wikia.nocookie.net/ben10/images/5/54/Kenko_ov.png/revision/latest?cb=20190919070752",
+    "name": "Kenko"
+  },
+        {
+        "id":79,
+    "image": "https://static.wikia.nocookie.net/ben10/images/5/53/JerryOV.png/revision/latest?cb=20211115172147",
+    "name": "Jerry"
+  },
+        {
+        "id":80,
+    "image": "https://static.wikia.nocookie.net/ben10/images/4/4a/77.png/revision/latest?cb=20200531141916",
+    "name": "SevenSeven"
+  },
+        {
+        "id":81,
+    "image": "https://static.wikia.nocookie.net/ben10/images/4/4c/Starbeard_official.png/revision/latest?cb=20141113161202",
+    "name": "Starbeard"
+  },
+        {
+        "id":82,
+    "image": "https://static.wikia.nocookie.net/ben10/images/0/05/Psyphon_OV.png/revision/latest?cb=20210515162917",
+    "name": "Psyphon"
+  },
+        {
+        "id":83,
+    "image": "https://static.wikia.nocookie.net/ben10/images/d/d9/Vulcanus_AF.png/revision/latest?cb=20150808134542",
+    "name": "Vulkanus"
+  },
+        {
+        "id":84,
+    "image": "https://static.wikia.nocookie.net/ben10/images/2/2c/Hex.png/revision/latest?cb=20170706110154",
+    "name": "Hex"
+  },
+        {
+        "id":85,
+    "image": "https://static.wikia.nocookie.net/ben10/images/8/81/DNAliens.png/revision/latest?cb=20210319230054",
+    "name": "DNAlien"
+  },
+        {
+        "id":86,
+    "image": "https://static.wikia.nocookie.net/ben10/images/d/da/Rook_Blonko_Model.png/revision/latest?cb=20231206005303",
+    "name": "Rook Blonko"
+  },
+          {
+        "id":87,
+    "image": "https://static.wikia.nocookie.net/ben10/images/4/44/ZsSkayrOVPose.png/revision/latest?cb=20140627174031",
+    "name": "Zs'Skayr"
+  },
+          {
+        "id":88,
+    "image": "https://static.wikia.nocookie.net/ben10/images/1/10/Cow_alien_model.png/revision/latest?cb=20200801072428",
+    "name": "Cow Alien"
+  },
+          {
+        "id":89,
+    "image": "https://static.wikia.nocookie.net/ben10/images/e/e7/Grick_Model.png/revision/latest?cb=20210515170407",
+    "name": "Grick"
+  },
+          {
+        "id":90,
+    "image": "https://static.wikia.nocookie.net/ben10/images/4/4c/Trumbipulor_ov.png/revision/latest?cb=20200527132325",
+    "name": "Trombipulor"
+  }
+]
