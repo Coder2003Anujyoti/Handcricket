@@ -1,8 +1,11 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import { HashLink } from 'react-router-hash-link'
 const Home=()=> {
   const [mode,setMode]=useState("knockout")
   const teams=["Mi","Dc","Kkr","Csk","Pbks","Srh","Rcb","Rr","Lsg","Gt"]
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
   return (
    <>
   <div className="relative w-full bg-slate-800 flex items-center justify-between p-2 z-50 md:px-4 md:py-3">

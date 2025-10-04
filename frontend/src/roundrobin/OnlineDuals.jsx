@@ -28,6 +28,9 @@ useEffect(()=>{
     setLoad(false)
   },3000)
 },[])
+useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
   const triggerInactivity = () => {
     setImp('Connection issues...');
     socket.disconnect()

@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import { toast, Toaster } from 'react-hot-toast';
 import {useNavigate} from "react-router-dom"
@@ -9,6 +9,9 @@ function Create() {
  const [name,setName]=useState("")
  const [tournamentpassword,setTournamentpassword]=useState("")
  const navigate = useNavigate()
+ useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
  const add_room=async()=>{
  if(tournamentid.length>0 && tournamentpassword.length>0 ){
    try {

@@ -14,6 +14,9 @@ const id = searchParams.get("id");
 const name = searchParams.get("name");
 const rawTeams = searchParams.get("teams");
 const navigate=useNavigate()
+useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 const teams = rawTeams ? JSON.parse(decodeURIComponent(rawTeams)) : [];
 const teamicons=[{team:"Csk",image:"online/Gaikwad.webp"},{team:"Dc",image:"online/Pant.webp"},{team:"Kkr",image:"online/S.Iyer.webp"},{team:"Mi",image:"online/Hardik.webp"},{team:"Rr",image:"online/Samson.webp"},{team:"Gt",image:"online/Gill.webp"},{team:"Pbks",image:"online/Dhawan.webp"},{team:"Rcb",image:"online/Duplesis.webp"},{team:"Srh",image:"online/Cummins.webp"},{team:"Lsg",image:"online/KL Rahul.webp"}]
 const join_room=async()=>{
@@ -249,6 +252,58 @@ className={`px-4 py-2 font-bold  ${mode === "result" ? 'border-b border-b-white 
     </>)
   })}
   </div>
+  </>
+}
+{
+  val[0].knockouts.filter((i)=>i.winner == "").length > 0 && val[0].knockouts.filter((i)=> (i.firstteam.name == name || i.secondteam.name == name) && i.winner=="").length == 0 && <>
+   <div className="flex flex-col ml-2 mr-2 gap-4 my-16 justify-center items-center">
+  {
+    val[0].contestants.filter((i)=>i.name == name).map((i)=>{ return(<>
+ <div className="w-72 h-54 p-2 bg-slate-800 flex flex-col items-center justify-center rounded-md flex-wrap lg:w-96 lg:h-90 md:w-96 md:h-84">
+ <img src={teamicons.filter((it)=> it.team == i.team)[0].image} className="w-40 h-40" />
+  <img src={`Logos/${teamicons.filter((it)=> it.team == i.team)[0].team}.webp`} className="w-12 h-12"/>
+    <h1 className="text-sm p-4 text-white font-bold">Waiting for Next match.....</h1>
+ </div>
+    </>)})
+  }
+  </div>
+  </>
+}
+{
+  val[0].knockouts.filter((i)=>i.winner=="").length == 0 &&
+  <>
+{
+  val[0].contestants.filter((i)=> i.team == val[0].matches[0].firstteam.team || i.team == val[0].matches[0].secondteam.team).filter((i)=>
+    i.name == name).length > 0 && val[0].winner!=="" && val[0].runnerup!=="" && val[0].thirdplace=="" && <>
+   <div className="flex flex-col ml-2 mr-2 gap-4 my-16 justify-center items-center">
+  {
+    val[0].contestants.filter((i)=>i.name == name).map((i)=>{ return(<>
+ <div className="w-72 h-54 p-2 bg-slate-800 flex flex-col items-center justify-center rounded-md flex-wrap lg:w-96 lg:h-90 md:w-96 md:h-84">
+ <img src={teamicons.filter((it)=> it.team == i.team)[0].image} className="w-40 h-40" />
+  <img src={`Logos/${teamicons.filter((it)=> it.team == i.team)[0].team}.webp`} className="w-12 h-12"/>
+    <h1 className="text-sm p-4 text-white font-bold">Waiting for Results.....</h1>
+ </div>
+    </>)})
+  }
+  </div>
+</>
+}
+{
+  val[0].contestants.filter((i)=> i.team == val[0].matches[1].firstteam.team || i.team == val[0].matches[1].secondteam.team).filter((i)=>
+    i.name == name).length > 0 && val[0].thirdplace!=="" && val[0].winner=="" && val[0].runnerup== "" && <>
+   <div className="flex flex-col ml-2 mr-2 gap-4 my-16 justify-center items-center">
+  {
+    val[0].contestants.filter((i)=>i.name == name).map((i)=>{ return(<>
+ <div className="w-72 h-54 p-2 bg-slate-800 flex flex-col items-center justify-center rounded-md flex-wrap lg:w-96 lg:h-90 md:w-96 md:h-84">
+ <img src={teamicons.filter((it)=> it.team == i.team)[0].image} className="w-40 h-40" />
+  <img src={`Logos/${teamicons.filter((it)=> it.team == i.team)[0].team}.webp`} className="w-12 h-12"/>
+    <h1 className="text-sm p-4 text-white font-bold">Waiting for Results.....</h1>
+ </div>
+    </>)})
+  }
+  </div>
+</>
+}
   </>
 }
 </>
