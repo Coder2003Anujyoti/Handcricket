@@ -15,7 +15,7 @@ function Make() {
  const add_room=async()=>{
  if(tournamentid.length>0 && tournamentpassword.length>0 ){
    try {
-    const response = await fetch("http://localhost:8000/add-roundrobin-room", {
+    const response = await fetch("https://miniature-toma-aliudufu-dfe931ca.koyeb.app/add-roundrobin-room", {
       method: "POST", 
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +45,7 @@ function Make() {
 const delete_room=async()=>{
  if(tournamentid.length>0 && tournamentpassword.length>0){
    try {
-    const response = await fetch("http://localhost:8000/delete-roundrobin-room", {
+    const response = await fetch("https://miniature-toma-aliudufu-dfe931ca.koyeb.app/delete-roundrobin-room", {
       method: "POST", 
       headers: {
         "Content-Type": "application/json",
@@ -76,7 +76,7 @@ const delete_room=async()=>{
 const join_room=async()=>{
   if(tournamentid.length>0 && name.length>0){
    try {
-    const response = await fetch("http://localhost:8000/add-roundrobin-contestant", {
+    const response = await fetch("https://miniature-toma-aliudufu-dfe931ca.koyeb.app/add-roundrobin-contestant", {
       method: "POST", 
       headers: {
         "Content-Type": "application/json",

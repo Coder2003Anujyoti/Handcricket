@@ -21,7 +21,7 @@ useEffect(() => {
 const join_room=async()=>{
   if(id.length>0 && name.length>0){
    try {
-    const response = await fetch("http://localhost:8000/add-knockouts-contestant", {
+    const response = await fetch("https://miniature-toma-aliudufu-dfe931ca.koyeb.app/add-knockouts-contestant", {
       method: "POST", 
       headers: {
         "Content-Type": "application/json",
