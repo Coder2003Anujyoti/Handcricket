@@ -33,13 +33,6 @@ const join_room=async()=>{
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const result = await response.json();
-    var table=result.contestants.map((i)=>{
-      return {team:i.team,
-      matches:result.matches.filter((it)=> (it.firstteam.name == i.name || it.secondteam.name== i.name) && it.winner !== "").length,
-      win:result.matches.filter((it)=> (it.firstteam.name == i.name || it.secondteam.name == i.name) && it.winner === i.team).length,
-      lose:result.matches.filter((it)=> (it.firstteam.name == i.name || it.secondteam.name == i.name) && it.loser === i.team).length
-      }
-    })
 if(result?.message){
     setTimeout(()=>{
   setLoading(false)
@@ -47,6 +40,13 @@ if(result?.message){
   },3000)
 }
 else{
+  var table=result.contestants.map((i)=>{
+      return {team:i.team,
+      matches:result.matches.filter((it)=> (it.firstteam.name == i.name || it.secondteam.name== i.name) && it.winner !== "").length,
+      win:result.matches.filter((it)=> (it.firstteam.name == i.name || it.secondteam.name == i.name) && it.winner === i.team).length,
+      lose:result.matches.filter((it)=> (it.firstteam.name == i.name || it.secondteam.name == i.name) && it.loser === i.team).length
+      }
+    })
   setTimeout(()=>{
   setLoading(false)
   setVal([result])
@@ -139,8 +139,8 @@ className={`px-4 py-2 font-bold  ${mode === "result" ? 'border-b border-b-white 
   </button> } 
   </div>
 {mode== "profile" && <>
-<div className="w-full flex justify-center items-center mt-12 mb-4">
-<div className="w-72 h-52 bg-slate-800 my-4 flex flex-row justify-center items-center rounded-md lg:w-84 lg:h-90">
+<div className="w-full flex justify-center items-center">
+<div className="w-72 h-52 bg-slate-800 my-4 flex flex-row justify-center items-center rounded-md mt-12 mb-6 lg:w-84 lg:h-90">
 { val[0].matches.filter((it)=> it.firstteam.name == name || it.secondteam.name== name).map((i,ind)=>{
   return(<>
 <div key={ind} className="w-1/2 flex flex-col justify-center items-center">

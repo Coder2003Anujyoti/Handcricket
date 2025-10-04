@@ -254,7 +254,6 @@ else{
   players,
   game: game[roomId]
 })
-}
 try {
   const user = await UserCollection.findOne({ id: players[0].matchID });
   if (!user) return;
@@ -386,7 +385,7 @@ user.markModified("matches");
 } catch (err) {
   console.error(err);
 }
-
+}
   delete rooms[roomId]
   delete game[roomId]
   delete turn[roomId]

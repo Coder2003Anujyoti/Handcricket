@@ -160,7 +160,6 @@ else{
   players,
   game: game[roomId]
 })
-}
 try{
 const user= await UserCollection.findOne({id:players[0].matchID})
 if(user.matches.filter((i)=> i.winner == "").length >0){
@@ -189,6 +188,7 @@ await user.save()
 }
 catch(err){
 console.log(err)
+}
 }
   delete rooms[roomId]
   delete game[roomId]
