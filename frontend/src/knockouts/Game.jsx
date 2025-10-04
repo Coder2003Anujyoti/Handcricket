@@ -139,7 +139,7 @@ className={`px-4 py-2 font-bold  ${mode === "result" ? 'border-b border-b-white 
   </button> } 
   </div>
 {mode== "profile" && <>
-<div className="w-full flex justify-center items-center my-12">
+<div className="w-full flex justify-center items-center mt-12 mb-4">
 <div className="w-72 h-52 bg-slate-800 my-4 flex flex-row justify-center items-center rounded-md lg:w-84 lg:h-90">
 { val[0].matches.filter((it)=> it.firstteam.name == name || it.secondteam.name== name).map((i,ind)=>{
   return(<>
