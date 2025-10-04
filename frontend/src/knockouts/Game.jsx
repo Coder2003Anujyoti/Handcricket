@@ -33,7 +33,7 @@ const join_room=async()=>{
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const result = await response.json();
-    const table=result.contestants.map((i)=>{
+    var table=result.contestants.map((i)=>{
       return {team:i.team,
       matches:result.matches.filter((it)=> (it.firstteam.name == i.name || it.secondteam.name== i.name) && it.winner !== "").length,
       win:result.matches.filter((it)=> (it.firstteam.name == i.name || it.secondteam.name == i.name) && it.winner === i.team).length,
