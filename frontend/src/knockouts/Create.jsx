@@ -8,11 +8,14 @@ function Create() {
  const [showpassword,setShowpassword]=useState(false)
  const [name,setName]=useState("")
  const [tournamentpassword,setTournamentpassword]=useState("")
+ const [createlock,setCreatelock]=useState(false)
+const [joinlock,setJoinlock]=useState(false)
+ const [deletelock,setDeletelock]=useState(false)
  const navigate = useNavigate()
  useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
- const add_room=async()=>{
+ const adds_room=async()=>{
  if(tournamentid.length>0 && tournamentpassword.length>0 ){
    try {
     const response = await fetch("https://miniature-toma-aliudufu-dfe931ca.koyeb.app/add-knockouts-room", {
@@ -39,10 +42,11 @@ function Create() {
   finally{
     setTournamentid("")
     setTournamentpassword("")
+    setCreatelock(false)
   }
 }
  }
-const delete_room=async()=>{
+const deletes_room=async()=>{
  if(tournamentid.length>0 && tournamentpassword.length>0){
    try {
     const response = await fetch("https://miniature-toma-aliudufu-dfe931ca.koyeb.app/delete-knockouts-room", {
@@ -70,10 +74,11 @@ const delete_room=async()=>{
   finally{
   setTournamentid("")
     setTournamentpassword("")
+    setDeletelock(false)
   }
 }
  }
-const join_room=async()=>{
+const joins_room=async()=>{
   if(tournamentid.length>0 && name.length>0){
    try {
     const response = await fetch("https://miniature-toma-aliudufu-dfe931ca.koyeb.app/add-knockouts-contestant", {
@@ -116,10 +121,28 @@ const encoded = encodeURIComponent(JSON.stringify(arr));
 finally{
   setTournamentid("")
   setName("")
+  setJoinlock(false)
 }
 }
 }
-
+ const add_room=()=>{
+  if(tournamentid.length>0 && tournamentpassword.length>0 ){
+    setCreatelock(true)
+    adds_room()
+  }
+ }
+ const delete_room=()=>{
+  if(tournamentid.length>0 && tournamentpassword.length>0 ){
+    setDeletelock(true)
+    deletes_room()
+  }
+ }
+ const join_room = ()=>{
+  if(tournamentid.length>0 && name.length>0){
+    setJoinlock(true)
+    joins_room()
+  }
+ }
   return (
   <>
   <Toaster position="top-center" toastOptions={{ className:"font-bold", duration: 2000 }} />
@@ -156,7 +179,7 @@ className="absolute inset-y-0 right-2 flex items-center text-gray-500" >
 </div>
   </div>
   <div className="flex flex-row mt-6 justify-center gap-3 ">
-<button onClick={add_room} className="bg-slate-800 text-white text-base px-6 py-2 font-bold rounded-md shadow-md">Create Room</button>
+<button onClick={add_room} disabled={createlock} className="bg-slate-800 text-white text-base px-6 py-2 font-bold rounded-md shadow-md">Create Room</button>
   </div>
   </>) : (mode=="join") ? (<>
     <div className="max-w-xl w-full mx-auto mt-4 px-4 sm:px-6 py-4 rounded-xl space-y-6">
@@ -170,7 +193,7 @@ value={tournamentid} onChange={(e) => setTournamentid(e.target.value.replace(/\s
       />
   </div>
 <div className="flex flex-row mt-6 justify-center gap-3 ">
-<button onClick={join_room} className="bg-slate-800 text-white text-base px-6 py-2 font-bold rounded-md shadow-md">Join Room</button>
+<button onClick={join_room} disabled={joinlock} className="bg-slate-800 text-white text-base px-6 py-2 font-bold rounded-md shadow-md">Join Room</button>
   </div>
   </>) :
   (<>
@@ -192,7 +215,7 @@ className="absolute inset-y-0 right-2 flex items-center text-gray-500" >
 </div>
   </div>
   <div className="flex flex-row mt-6 justify-center gap-3 ">
-<button onClick={delete_room} className="bg-slate-800 text-white text-base px-6 py-2 font-bold rounded-md shadow-md">Delete Room</button>
+<button onClick={delete_room} disabled={deletelock} className="bg-slate-800 text-white text-base px-6 py-2 font-bold rounded-md shadow-md">Delete Room</button>
   </div>
   </>)
 }
