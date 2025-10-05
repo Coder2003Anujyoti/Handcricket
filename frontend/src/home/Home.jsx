@@ -17,6 +17,9 @@ className={`px-4 py-2 font-bold  ${mode === "knockout" ? 'border-b border-b-whit
 <button onClick={() => setMode("round-robin")}
 className={`px-4 py-2 font-bold  ${mode === "round-robin" ? 'border-b border-b-white text-white' : 'text-white border-b border-b-transparent'}`}>Round-Robin
   </button>
+<button onClick={() => setMode("oneversusone")}
+className={`px-4 py-2 font-bold  ${mode === "oneversusone" ? 'border-b border-b-white text-white' : 'text-white border-b border-b-transparent'}`}>1 V/S 1
+  </button>
   </div>
   <h1 className='text-white font-bold text-center my-8 lg:text-xl'>Create Tournament</h1>
   <div className="w-full flex flex-row flex-wrap justify-center items-center my-8 gap-8 px-4 sm:px-8">
@@ -68,6 +71,31 @@ className={`px-4 py-2 font-bold  ${mode === "round-robin" ? 'border-b border-b-w
       </div>
   </div>
   </div></>}
+{mode == "oneversusone" && <>
+  <div className='w-96 h-64 bg-slate-800 rounded-md flex flex-row'>
+  <div className='w-1/2 flex justify-center items-center p-6'>
+  <img src="Icons/stadium.webp" className='w-28 h-28' />
+  </div>
+  <div className='w-1/2 flex flex-col gap-y-6 justify-center items-center p-1 items-center'>
+   <div className='w-full flex flex-row flex-wrap justify-center items-center gap-1 items-center'>
+   {
+  teams.map((i, index) => (
+    <div key={index}>
+      <img src={`Logos/${i}.webp`} className="w-9 h-9" alt={i} />
+    </div>
+  ))
+}
+    </div>
+    <div className='w-full flex flex-row flex-wrap justify-center items-center gap-3  items-center'>
+    <HashLink smooth to="/structure">
+     <button  className="flex bg-slate-900 text-white font-bold py-2 px-7 rounded-md transition duration-300">
+      Series Match
+      </button>
+    </HashLink>
+   </div>
+  </div>
+  </div>
+</>}
   </div>
    </>
   )
