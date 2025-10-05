@@ -114,7 +114,7 @@ useEffect(()=>{
 {
     loading==false && msg != "" && 
     <>
-    <div className="relative w-full bg-slate-800 flex items-center justify-between p-2 z-50 md:px-4 md:py-3">
+    <div className="relative w-full bg-slate-800 flex items-center justify-between p-2 md:px-4 md:py-3">
   <img className="w-28 h-16" src={`Icons/Logo.webp`} />
   </div>
     <p className="text-center text-sm lg:text-base my-36 text-white font-bold">{msg}</p>
@@ -122,7 +122,7 @@ useEffect(()=>{
 }
   {
   val.length >0 && loading==false && <>
-   <div className="relative w-full bg-slate-800 flex items-center justify-between p-2 z-50 md:px-4 md:py-3">
+   <div className="relative w-full bg-slate-800 flex items-center justify-between p-2 md:px-4 md:py-3">
   <img className="w-28 h-16" src={`Icons/Logo.webp`} />
   </div>
   <div className="flex justify-evenly mt-4">
@@ -436,7 +436,16 @@ className={`px-4 py-2 font-bold  ${mode === "result" ? 'border-b border-b-white 
 {
   (val[0].winner != "" && val[0].runnerup != "" && val[0].thirdplace != "") &&
   <>
-<div className="w-full flex justify-center my-12 items-center gap-4 flex-row flex-wrap">
+  <Confetti
+      width={window.innerWidth}
+      height={window.innerHeight}
+      numberOfPieces={250}
+      recycle={false}
+    />
+<div className="w-full flex justify-center my-8 items-center flex-row gap-x-4 gap-y-4 flex-wrap">
+<div className="w-full flex justify-center items-center">
+<img src="Icons/trophy.webp"  className="w-16 h-16" />
+</div>
 <div className="flex justify-center items-center flex-col gap-2">
 <p className="text-yellow-400 text-xs font-bold">Winner</p>
 <img src={teamicons.filter((i)=> i.team == val[0].winner)[0].image} className="w-24 h-24" />
