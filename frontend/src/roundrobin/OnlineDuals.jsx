@@ -3,7 +3,17 @@ import {HashLink} from 'react-router-hash-link'
 import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import {socket} from "../socket/socket"
+const LocalData=()=>{
+  const lists=sessionStorage.getItem('completed');
+  if(lists){
+    return JSON.parse(lists);
+  }
+  else{
+    return "";
+}
+}
 const OnlineDuals = () => {
+const val=LocalData()
 const [searchParams] = useSearchParams();
 const [load,setLoad]=useState(true)
 const [text,setText]=useState("")
@@ -86,6 +96,7 @@ useEffect(()=>{
   clearInterval(countdownInterval.current);
     clearTimeout(inactivityTimeout.current);
   }
+    sessionStorage.setItem("completed", JSON.stringify(mesg.game.result !== "Match is tied"));
     setData(mesg)
   })
   socket.on('dualLefts',(mseg)=>{
@@ -225,8 +236,10 @@ const optio=(i)=>{
   <div className="w-full items-center flex  flex-col justify-center">
   <img src={teamicons.filter((i)=>i.team==adminteam)[0].image} className="w-36 h-36"/>
     <img src={`Logos/${adminteam}.webp`} className="w-12 h-12 my-2" />
+    {!(val && val == true) &&
 <button onClick={()=>add_Name(adminteam,teamicons.filter((i)=>i.team==adminteam)[0].image)} className="bg-slate-800 my-12 text-white text-base px-6 py-2 font-bold rounded-md shadow-md"> Play Game</button>
-  </div>
+}
+</div>
   </>
 }
 {
@@ -234,8 +247,10 @@ const optio=(i)=>{
   <div className="w-full flex flex-col items-center justify-center">
   <img src={teamicons.filter((i)=>i.team==idteam)[0].image} className="w-36 h-36"/>
     <img src={`Logos/${idteam}.webp`} className="w-12 h-12 my-2" />
+     {!(val && val == true) &&
     <button onClick={()=>add_Name(idteam,teamicons.filter((i)=>i.team==idteam)[0].image)} className="bg-slate-800 text-white text-base px-6 py-2 my-12 font-bold rounded-md shadow-md"> Play Game</button>
-  </div>
+     }
+    </div>
   </>
 }
 </>
