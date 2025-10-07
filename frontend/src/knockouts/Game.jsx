@@ -126,7 +126,7 @@ useEffect(()=>{
    <div className="relative w-full bg-slate-800 flex items-center justify-between p-2 md:px-4 md:py-3">
   <img className="w-28 h-16" src={`Icons/Logo.webp`} />
   </div>
-   <p className="text-center text-sm my-2 text-white font-bold p-2">Tournament ID-: {val[0].id}</p>
+  {mode=="profile" && <p className="text-center text-sm my-2 text-white font-bold p-2">Tournament ID-: {val[0].id}</p>}
   <div className="flex justify-evenly mt-4">
 <button onClick={() => {setMode("profile")}}
 className={`px-4 py-2 font-bold  ${mode === "profile" ? 'border-b border-b-white text-white' : 'text-white border-b border-b-transparent'}`}>Profile</button>
