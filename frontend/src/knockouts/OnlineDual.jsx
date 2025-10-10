@@ -95,8 +95,8 @@ useEffect(()=>{
   if(mesg.game.result!=''){
   clearInterval(countdownInterval.current);
     clearTimeout(inactivityTimeout.current);
+    sessionStorage.setItem("completed", JSON.stringify(mesg.game.result !== "Match is tied"));
   }
-  sessionStorage.setItem("completed", JSON.stringify(mesg.game.result !== "Match is tied"));
     setData(mesg)
   })
   socket.on('dualLeft',(mseg)=>{
