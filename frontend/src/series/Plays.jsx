@@ -233,9 +233,9 @@ className={`px-4 py-2 font-bold  ${mode === "result" ? 'border-b border-b-white 
    <div className="w-full bg-slate-800 flex flex-row rounded-md flex-wrap lg:w-96 lg:h-48 md:w-96 md:h-48 md:p-2">
    <div className="w-1/2 flex flex-col justify-center items-center">
   <div className="flex flex-row gap-2">
-<img src={`Logos/${val[0].news[0].teamone}.webp`} className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-contain" />
+<img src={`Logos/${val[0].news[0].teamone}.webp`} className="w-14 h-14 sm:w-16 sm:h-16 object-contain" />
 <h1 className="text-lg sm:text-xl font-bold text-white my-4">v/s</h1>
-<img src={`Logos/${val[0].news[0].teamtwo}.webp`} className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-contain" />
+<img src={`Logos/${val[0].news[0].teamtwo}.webp`} className="w-14 h-14 sm:w-16 sm:h-16 object-contain" />
   </div>
  <p className="text-sm font-bold text-white">{val[0].news[0].type}</p>
 <div className="w-full flex flex-row flex-wrap justify-center items-center mt-2">
