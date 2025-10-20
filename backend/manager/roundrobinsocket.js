@@ -1,4 +1,5 @@
 const { v4: uuidv4 } = require('uuid');
+const crypto=require("crypto")
 const rooms={}
 const turn={}
 const game={}
@@ -9,6 +10,7 @@ module.exports=(io,socket)=>{
     const team=msg.team
     const player=msg.player
     const matchID=msg.matchID
+    const matchtype=msg.matchtype
     let assignedRoom=null;
   for (const roomID in rooms) {
     const existingPlayer = rooms[roomID].find(p => p.name === name);
@@ -27,7 +29,7 @@ module.exports=(io,socket)=>{
       assignedRoom=uuidv4();
       rooms[assignedRoom]=[]
     }
-    rooms[assignedRoom].push({ id: socket.id, name, choice:0,team,player,matchID});
+    rooms[assignedRoom].push({ id: socket.id, name, choice:0,team,player,matchID,matchtype});
     console.log(rooms[assignedRoom])
     socket.join(assignedRoom);
     console.log(`${name} joined room ${assignedRoom}`);
@@ -98,7 +100,12 @@ try {
   let contestants = [...user.contestants];
   let knockouts = [...user.knockouts];
   let matches = [...user.matches];
-
+  const nws=[...user.news]
+const news=[`What a thriller between ${players[0].team.toUpperCase()} and ${players[1].team.toUpperCase()}!`,
+    `A great knock from ${batter.name}, truly deserving the MoTM!`,
+  `Masterclass by ${batter.name} what a performance!`,`${batter.name}'s all-round brilliance lights up the game!`,
+  `What a great clash between ${players[0].team.toUpperCase()} and ${players[1].team.toUpperCase()}!`,
+`A high-voltage clash ends in favour of ${players.filter((i)=> i.name == batter.name)[0].team.toUpperCase()}!`]
   // STEP 1: More than one knockout remaining
   if (knockouts.filter(i => i.winner === "").length > 1) {
     const playerone = contestants.find(i => i.name === batter.name);
@@ -122,7 +129,9 @@ try {
       playertwo.nrr -= parseFloat(
         (((games.scores[batter.name]) - (games.target - 1)) / playertwo.matches).toFixed(2)
       );
-
+      const ind=crypto.randomInt(0,news.length)
+nws.pop()
+nws.push({type:players[0].matchtype,content:news[ind],teamone:match.firstteam.team,teamtwo:match.secondteam.team,photo:players.filter((i)=> i.name == batter.name)[0].player})
       match.winner = batter.team;
       match.loser = bowler.team;
     }
@@ -151,7 +160,9 @@ try {
       playertwo.nrr -= parseFloat(
         (((games.scores[batter.name]) - (games.target - 1)) / playertwo.matches).toFixed(2)
       );
-
+     const ind=crypto.randomInt(0,news.length)
+nws.pop()
+nws.push({type:players[0].matchtype,content:news[ind],teamone:match.firstteam.team,teamtwo:match.secondteam.team,photo:players.filter((i)=> i.name == batter.name)[0].player})
       match.winner = batter.team;
       match.loser = bowler.team;
     }
@@ -192,9 +203,15 @@ try {
       match.loser = bowler.team;
 
       if (match.type === "Final") {
+        const ind=crypto.randomInt(0,news.length)
+nws.pop()
+nws.push({type:players[0].matchtype,content:news[ind],teamone:match.firstteam.team,teamtwo:match.secondteam.team,photo:players.filter((i)=> i.name == batter.name)[0].player})
         user.winner = batter.team;
         user.runnerup = bowler.team;
       } else if (match.type === "Third-Place") {
+        const ind=crypto.randomInt(0,news.length)
+nws.pop()
+nws.push({type:players[0].matchtype,content:news[ind],teamone:match.firstteam.team,teamtwo:match.secondteam.team,photo:players.filter((i)=> i.name == batter.name)[0].player})
         user.thirdplace = batter.team;
       }
     }
@@ -204,6 +221,8 @@ try {
   user.contestants = contestants;
   user.knockouts = knockouts;
   user.matches = matches;
+  user.news=nws;
+  user.markModified("news")
   user.markModified("contestants");
 user.markModified("knockouts");
 user.markModified("matches");
@@ -262,7 +281,12 @@ try {
   let contestants = [...user.contestants];
   let knockouts = [...user.knockouts];
   let matches = [...user.matches];
-
+  const nws=[...user.news]
+const news=[`What a thriller between ${players[0].team.toUpperCase()} and ${players[1].team.toUpperCase()}!`,
+    `A great knock from ${bowler.name}, truly deserving the win!`,
+  `Masterclass by ${bowler.name} what a performance!`,`${bowler.name}'s all-round brilliance lights up the game!`,
+  `What a great clash between ${players[0].team.toUpperCase()} and ${players[1].team.toUpperCase()}!`,
+`A high-voltage clash ends in favour of ${players.filter((i)=> i.name == bowler.name)[0].team.toUpperCase()}!`]
   // -------------------------------
   // CASE 1: More than 1 knockout match pending
   // -------------------------------
@@ -289,7 +313,9 @@ try {
       playertwo.nrr += parseFloat(
         (((games.target - 1) - games.scores[batter.name]) / playertwo.matches).toFixed(2)
       );
-
+ const ind=crypto.randomInt(0,news.length)
+nws.pop()
+nws.push({type:players[0].matchtype,content:news[ind],teamone:match.firstteam.team,teamtwo:match.secondteam.team,photo:players.filter((i)=> i.name == bowler.name)[0].player})
       match.winner = bowler.team;
       match.loser = batter.team;
     }
@@ -321,7 +347,9 @@ try {
       playertwo.nrr += parseFloat(
         (((games.target - 1) - games.scores[batter.name]) / playertwo.matches).toFixed(2)
       );
-
+const ind=crypto.randomInt(0,news.length)
+nws.pop()
+nws.push({type:players[0].matchtype,content:news[ind],teamone:match.firstteam.team,teamtwo:match.secondteam.team,photo:players.filter((i)=> i.name == bowler.name)[0].player})
       match.winner = bowler.team;
       match.loser = batter.team;
     }
@@ -364,9 +392,15 @@ try {
       match.loser = batter.team;
 
       if (match.type === "Final") {
+      const ind=crypto.randomInt(0,news.length)
+nws.pop()
+nws.push({type:players[0].matchtype,content:news[ind],teamone:match.firstteam.team,teamtwo:match.secondteam.team,photo:players.filter((i)=> i.name == bowler.name)[0].player})
         user.winner = bowler.team;
         user.runnerup = batter.team;
       } else if (match.type === "Third-Place") {
+    const ind=crypto.randomInt(0,news.length)
+nws.pop()
+nws.push({type:players[0].matchtype,content:news[ind],teamone:match.firstteam.team,teamtwo:match.secondteam.team,photo:players.filter((i)=> i.name == bowler.name)[0].player})
         user.thirdplace = bowler.team;
       }
     }
@@ -376,6 +410,8 @@ try {
   user.contestants = contestants;
   user.knockouts = knockouts;
   user.matches = matches;
+  user.news=nws;
+  user.markModified("news")
   user.markModified("contestants");
 user.markModified("knockouts");
 user.markModified("matches");

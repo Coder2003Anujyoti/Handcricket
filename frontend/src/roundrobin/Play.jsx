@@ -191,7 +191,7 @@ className={`px-4 py-2 font-bold  ${mode === "result" ? 'border-b border-b-white 
 {mode== "play" && <> 
 {
   val[0].knockouts.filter((i)=> (i.firstteam.name == name || i.secondteam.name== name) && i.winner == "").length > 0 && <>
-  <div className="flex flex-col ml-2 mr-2 gap-4 my-12 justify-center items-center">
+  <div className="flex flex-col ml-2 mr-2 gap-4 my-5 justify-center items-center">
  {val[0].knockouts.filter((i)=> (i.firstteam.name == name || i.secondteam.name== name) && i.winner == "").map((i,ind)=>{
   if(ind==0)
     return(<>
@@ -213,7 +213,7 @@ className={`px-4 py-2 font-bold  ${mode === "result" ? 'border-b border-b-white 
  </div>
     </div>
 <div className="flex flex-row mt-2 justify-center gap-3 ">
-<HashLink smooth to={`/onlineduals?id=${encodeURIComponent(name)}&&player=${encodeURIComponent(i.firstteam.name)}&&playerteam=${encodeURIComponent(i.firstteam.team)}&&computerteam=${encodeURIComponent(i.secondteam.team)}&&matchID=${encodeURIComponent(id)}`}>
+<HashLink smooth to={`/onlineduals?id=${encodeURIComponent(name)}&&player=${encodeURIComponent(i.firstteam.name)}&&playerteam=${encodeURIComponent(i.firstteam.team)}&&computerteam=${encodeURIComponent(i.secondteam.team)}&&matchID=${encodeURIComponent(id)}&&matchtype=${encodeURIComponent("Group-Stage")}`}>
 <button className="bg-slate-900 text-white text-base px-6 py-2 font-bold rounded-md shadow-md"> Play</button>
 </HashLink>
  </div>
@@ -225,7 +225,7 @@ className={`px-4 py-2 font-bold  ${mode === "result" ? 'border-b border-b-white 
 }
 {
   val[0].matches.filter((i)=> (i.firstteam.name == name || i.secondteam.name== name) && i.winner == "").length > 0 && <>
-  <div className="flex flex-col ml-2 mr-2 gap-4 my-12 justify-center items-center">
+  <div className="flex flex-col ml-2 mr-2 gap-4 my-5 justify-center items-center">
  {val[0].matches.filter((i)=> (i.firstteam.name == name || i.secondteam.name== name) && i.winner == "").map((i,ind)=>{
   if(ind==0)
     return(<>
@@ -247,7 +247,7 @@ className={`px-4 py-2 font-bold  ${mode === "result" ? 'border-b border-b-white 
  </div>
     </div>
 <div className="flex flex-row mt-2 justify-center gap-3 ">
-<HashLink smooth to={`/onlineduals?id=${encodeURIComponent(name)}&&player=${encodeURIComponent(i.firstteam.name)}&&playerteam=${encodeURIComponent(i.firstteam.team)}&&computerteam=${encodeURIComponent(i.secondteam.team)}&&matchID=${encodeURIComponent(id)}`}>
+<HashLink smooth to={`/onlineduals?id=${encodeURIComponent(name)}&&player=${encodeURIComponent(i.firstteam.name)}&&playerteam=${encodeURIComponent(i.firstteam.team)}&&computerteam=${encodeURIComponent(i.secondteam.team)}&&matchID=${encodeURIComponent(id)}&&matchtype=${encodeURIComponent(i.type)}`}>
 <button className="bg-slate-900 text-white text-base px-6 py-2 font-bold rounded-md shadow-md"> Play</button>
 </HashLink>
  </div>
@@ -259,7 +259,7 @@ className={`px-4 py-2 font-bold  ${mode === "result" ? 'border-b border-b-white 
 }
 {
   val[0].knockouts.filter((i)=>i.winner == "").length > 0 && val[0].knockouts.filter((i)=> (i.firstteam.name == name || i.secondteam.name == name) && i.winner=="").length == 0 && <>
-   <div className="flex flex-col ml-2 mr-2 gap-4 my-16 justify-center items-center">
+   <div className="flex flex-col ml-2 mr-2 gap-4 my-5 justify-center items-center">
   {
     val[0].contestants.filter((i)=>i.name == name).map((i)=>{ return(<>
  <div className="w-72 h-54 p-2 bg-slate-800 flex flex-col items-center justify-center rounded-md flex-wrap lg:w-96 lg:h-90 md:w-96 md:h-84">
@@ -278,7 +278,7 @@ className={`px-4 py-2 font-bold  ${mode === "result" ? 'border-b border-b-white 
 {
   val[0].contestants.filter((i)=> i.team == val[0].matches[0].firstteam.team || i.team == val[0].matches[0].secondteam.team).filter((i)=>
     i.name == name).length > 0 && val[0].winner!=="" && val[0].runnerup!=="" && val[0].thirdplace=="" && <>
-   <div className="flex flex-col ml-2 mr-2 gap-4 my-16 justify-center items-center">
+   <div className="flex flex-col ml-2 mr-2 gap-4 my-5 justify-center items-center">
   {
     val[0].contestants.filter((i)=>i.name == name).map((i)=>{ return(<>
  <div className="w-72 h-54 p-2 bg-slate-800 flex flex-col items-center justify-center rounded-md flex-wrap lg:w-96 lg:h-90 md:w-96 md:h-84">
@@ -294,7 +294,7 @@ className={`px-4 py-2 font-bold  ${mode === "result" ? 'border-b border-b-white 
 {
   val[0].contestants.filter((i)=> i.team == val[0].matches[1].firstteam.team || i.team == val[0].matches[1].secondteam.team).filter((i)=>
     i.name == name).length > 0 && val[0].thirdplace!=="" && val[0].winner=="" && val[0].runnerup== "" && <>
-   <div className="flex flex-col ml-2 mr-2 gap-4 my-16 justify-center items-center">
+   <div className="flex flex-col ml-2 mr-2 gap-4 my-5 justify-center items-center">
   {
     val[0].contestants.filter((i)=>i.name == name).map((i)=>{ return(<>
  <div className="w-72 h-54 p-2 bg-slate-800 flex flex-col items-center justify-center rounded-md flex-wrap lg:w-96 lg:h-90 md:w-96 md:h-84">
@@ -309,18 +309,42 @@ className={`px-4 py-2 font-bold  ${mode === "result" ? 'border-b border-b-white 
 }
   </>
 }
+{
+  val[0].news.length > 0 && <>
+  <p className="text-center text-sm text-white font-bold">Latest News</p>
+  <div className="flex flex-col ml-2 mr-2 gap-4 my-4 md:my-6 lg:px-20 lg:ml-16 md:ml-6 md:justify-center md:gap-8 md:items-center lg:gap-10 lg:flex-row lg:flex-wrap">
+   <div className="w-full bg-slate-800 flex flex-row rounded-md flex-wrap lg:w-96 lg:h-48 md:w-96 md:h-48 md:p-2">
+   <div className="w-1/2 flex flex-col justify-center items-center">
+  <div className="flex flex-row gap-2">
+<img src={`Logos/${val[0].news[0].teamone}.webp`} className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-contain" />
+<h1 className="text-lg sm:text-xl font-bold text-white my-4">v/s</h1>
+<img src={`Logos/${val[0].news[0].teamtwo}.webp`} className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-contain" />
+  </div>
+ <p className="text-sm font-bold text-white">{val[0].news[0].type}</p>
+<div className="w-full flex flex-row flex-wrap justify-center items-center mt-2">
+<h1 className="text-white text-center font-bold text-sm ml-2 mr-2">{val[0].news[0].content}</h1>
+</div>
+   </div>
+  <div className="w-1/2 flex justify-center items-center">
+  <img src={val[0].news[0].photo} className="w-auto h-auto" />
+  </div>
+    </div>
+    </div>
+  </>
+}
 </>
 }
 { mode== "matches" && <> 
 { val[0].knockouts.filter((i)=> i.winner == "").length > 0 && <>
+<div className="lg:w-full lg:flex lg:justify-center lg:items-center lg:flex-row lg:gap-x-24 lg:my-4 lg:flex-wrap">
 {
   val[0].knockouts.map((it,ind)=>{
   return(<>
-  <div className="w-full flex gap-y-6 my-8 flex-col">
-<div className="w-full flex justify-center items-center">
+<div className="flex gap-y-6 my-10 flex-col lg:items-center lg:justify-center">
+<div className="w-full flex justify-center items-center lg:w-80">
 <p className="text-center text-sm text-white font-bold">Match {ind+1}</p>
 </div>
-<div className="w-full flex">
+<div className="w-full flex lg:w-80">
 <div className="w-1/2 flex justify-center items-center flex-col gap-2">
 <img src={teamicons.filter((i)=> i.team == it.firstteam.team)[0].image} className="w-32 h-32" />
 <img src={`Logos/${teamicons.filter((i)=> i.team == it.firstteam.team)[0].team}.webp`} className="w-10 h-10" />
@@ -339,17 +363,19 @@ className={`px-4 py-2 font-bold  ${mode === "result" ? 'border-b border-b-white 
   </>)
   })
 }
+</div>
 </>
 }
 { val[0].knockouts.filter((i)=> i.winner == "").length == 0 && <>
+<div className="lg:w-full lg:flex lg:justify-center lg:items-center lg:flex-row lg:gap-x-24 lg:my-4 lg:flex-wrap">
 {
   val[0].matches.map((it,ind)=>{
   return(<>
-  <div className="w-full flex gap-y-6 my-8 flex-col">
-<div className="w-full flex justify-center items-center">
+<div className="flex gap-y-6 my-10 flex-col lg:items-center lg:justify-center">
+<div className="w-full flex justify-center items-center lg:w-80">
 <p className="text-center text-sm text-white font-bold">{it.type}</p>
 </div>
-<div className="w-full flex">
+<div className="w-full flex lg:w-80">
 <div className="w-1/2 flex justify-center items-center flex-col gap-2">
 <img src={teamicons.filter((i)=> i.team == it.firstteam.team)[0].image} className="w-32 h-32" />
 <img src={`Logos/${teamicons.filter((i)=> i.team == it.firstteam.team)[0].team}.webp`} className="w-10 h-10" />
@@ -368,6 +394,7 @@ className={`px-4 py-2 font-bold  ${mode === "result" ? 'border-b border-b-white 
   </>)
   })
 }
+</div>
 </>
 }
 </>

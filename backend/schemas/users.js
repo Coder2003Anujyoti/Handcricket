@@ -3,6 +3,7 @@ const userSchema = new mongoose.Schema({
        id: {type:String},
        password:{type:String},
        contestants: {type:Array},
+       news: {type:Array},
        matches: { type: Array },
        knockouts: { type: Array},
        teams: { type: Array},

@@ -20,7 +20,7 @@ const user=await UserCollection.findOne({id})
 if(user){
  return res.json({message:"Room already added",type:"error"})
 }
-const newUser = new UserCollection({id,password,contestants: [],matches: [],knockouts: [],teams: [], winner: "",
+const newUser = new UserCollection({id,password,contestants: [],news:[],matches: [],knockouts: [],teams: [], winner: "",
  runnerup: "",thirdplace: ""});
     await newUser.save();
     return res.json({ message: "Room added successfully",type:"success"});

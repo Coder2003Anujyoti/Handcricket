@@ -33,6 +33,7 @@ const admin=searchParams.get("player");
 const adminteam=searchParams.get("playerteam");
 const idteam = searchParams.get("computerteam");
 const matchID = searchParams.get("matchID")
+const matchtype=searchParams.get("matchtype")
 useEffect(()=>{
   setTimeout(()=>{
     setLoad(false)
@@ -125,7 +126,7 @@ useEffect(() => {
 }, []);
 const add_Name=(i,it)=>{
   if (disable==false) {
-  socket.emit('dualjoinRoom', {name:id,team:i,player:it,matchID});
+  socket.emit('dualjoinRoom', {name:id,team:i,player:it,matchID,matchtype});
     setDisable(true)
     }
 }

@@ -1,4 +1,5 @@
 const { v4: uuidv4 } = require('uuid');
+const crypto=require("crypto")
 const rooms={}
 const turn={}
 const game={}
@@ -9,6 +10,7 @@ module.exports=(io,socket)=>{
     const team=msg.team
     const player=msg.player
     const matchID=msg.matchID
+    const matchtype=msg.matchtype
     let assignedRoom=null;
   for (const roomID in rooms) {
     const existingPlayer = rooms[roomID].find(p => p.name === name);
@@ -27,7 +29,7 @@ module.exports=(io,socket)=>{
       assignedRoom=uuidv4();
       rooms[assignedRoom]=[]
     }
-    rooms[assignedRoom].push({ id: socket.id, name, choice:0,team,player,matchID});
+    rooms[assignedRoom].push({ id: socket.id, name, choice:0,team,player,matchID,matchtype});
     console.log(rooms[assignedRoom])
     socket.join(assignedRoom);
     console.log(`${name} joined room ${assignedRoom}`);
@@ -90,9 +92,18 @@ else{
 })
 try{
 const user= await UserCollection.findOne({id:players[0].matchID})
+const nws=[...user.news]
+const news=[`What a thriller between ${players[0].team.toUpperCase()} and ${players[1].team.toUpperCase()}!`,
+    `A great knock from ${batter.name}, truly deserving the win!`,
+  `Masterclass by ${batter.name} what a performance!`,`${batter.name}'s all-round brilliance lights up the game!`,
+  `What a great clash between ${players[0].team.toUpperCase()} and ${players[1].team.toUpperCase()}!`,
+`A high-voltage clash ends in favour of ${players.filter((i)=> i.name == batter.name)[0].team.toUpperCase()}!`]
 if(user.matches.filter((i)=> i.winner == "").length >0){
 user.matches=user.matches.map((i)=>{
   if(i.firstteam.name == batter.name || i.secondteam.name== batter.name){
+const ind=crypto.randomInt(0,news.length)
+nws.pop()
+nws.push({type:players[0].matchtype,content:news[ind],teamone:i.firstteam.team,teamtwo:i.secondteam.team,photo:players.filter((i)=> i.name == batter.name)[0].player})
     return({
       ...i,
     winner:(i.firstteam.name == batter.name) ? i.firstteam.team : i.secondteam.team,
@@ -102,18 +113,24 @@ user.matches=user.matches.map((i)=>{
   return {...i}
 })
 console.log(user)
-
 }
 else{
   if(user.matches.filter((i)=>i.winner ==batter.team).length > 0){
+const ind=crypto.randomInt(0,news.length)
+nws.pop()
+nws.push({type:players[0].matchtype,content:news[ind],teamone:user.matches[0].winner,teamtwo:user.matches[1].winner,photo:players.filter((i)=> i.name == batter.name)[0].player})
     user.winner=batter.team;
     user.runnerup= players.filter((i)=> i.team != batter.team)[0].team
   }
   else if(user.matches.filter((i)=>i.loser ==batter.team).length > 0)
-  {
+  { const ind=crypto.randomInt(0,news.length)
+nws.pop()
+nws.push({type:players[0].matchtype,content:news[ind],teamone:user.matches[0].loser,teamtwo:user.matches[1].loser,photo:players.filter((i)=> i.name == batter.name)[0].player})
     user.thirdplace=batter.team;
   }
 }
+user.news=nws
+user.markModified("news")
 user.markModified("matches");
 await user.save()
 }
@@ -162,9 +179,18 @@ else{
 })
 try{
 const user= await UserCollection.findOne({id:players[0].matchID})
+const nws=[...user.news]
+const news=[`What a thriller between ${players[0].team.toUpperCase()} and ${players[1].team.toUpperCase()}!`,
+    `A great knock from ${bowler.name}, truly deserving the win!`,
+  `Masterclass by ${bowler.name} what a performance!`,`${bowler.name}'s all-round brilliance lights up the game!`,
+  `What a great clash between ${players[0].team.toUpperCase()} and ${players[1].team.toUpperCase()}!`,
+`A high-voltage clash ends in favour of ${players.filter((i)=> i.name == bowler.name)[0].team.toUpperCase()}!`]
 if(user.matches.filter((i)=> i.winner == "").length >0){
 user.matches=user.matches.map((i)=>{
   if( i.firstteam.name == bowler.name || i.secondteam.name== bowler.name){
+const ind=crypto.randomInt(0,news.length)
+nws.pop()
+nws.push({type:players[0].matchtype,content:news[ind],teamone:i.firstteam.team,teamtwo:i.secondteam.team,photo:players.filter((i)=> i.name == bowler.name)[0].player})
  return({...i,winner:(i.firstteam.name == bowler.name) ? i.firstteam.team : i.secondteam.team
    ,loser:(i.firstteam.name != bowler.name) ? i.firstteam.team : i.secondteam.team})
   }
@@ -173,16 +199,24 @@ user.matches=user.matches.map((i)=>{
 }
 else{
   if(user.matches.filter((i)=>i.winner ==bowler.team).length > 0){
+  const ind=crypto.randomInt(0,news.length)
+nws.pop()
+nws.push({type:players[0].matchtype,content:news[ind],teamone:user.matches[0].winner,teamtwo:user.matches[1].winner,photo:players.filter((i)=> i.name == bowler.name)[0].player})
     user.winner=bowler.team;
     user.runnerup= players.filter((i)=> i.team != bowler.team)[0].team
     
   }
   else if(user.matches.filter((i)=>i.loser ==bowler.team).length > 0)
   {
+    const ind=crypto.randomInt(0,news.length)
+nws.pop()
+nws.push({type:players[0].matchtype,content:news[ind],teamone:user.matches[0].loser,teamtwo:user.matches[1].loser,photo:players.filter((i)=> i.name == bowler.name)[0].player})
     user.thirdplace=bowler.team;
     
   }
 }
+user.news=nws
+user.markModified("news")
 user.markModified("matches");
 await user.save()
 }

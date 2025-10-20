@@ -1,4 +1,5 @@
 const { v4: uuidv4 } = require('uuid');
+const crypto=require("crypto")
 const rooms={}
 const turn={}
 const game={}
@@ -9,6 +10,7 @@ module.exports=(io,socket)=>{
     const team=msg.team
     const player=msg.player
     const matchID=msg.matchID
+    const matchtype=msg.matchtype
     let assignedRoom=null;
   for (const roomID in rooms) {
     const existingPlayer = rooms[roomID].find(p => p.name === name);
@@ -27,7 +29,7 @@ module.exports=(io,socket)=>{
       assignedRoom=uuidv4();
       rooms[assignedRoom]=[]
     }
-    rooms[assignedRoom].push({ id: socket.id, name, choice:0,team,player,matchID});
+    rooms[assignedRoom].push({ id: socket.id, name, choice:0,team,player,matchID,matchtype});
     console.log(rooms[assignedRoom])
     socket.join(assignedRoom);
     console.log(`${name} joined room ${assignedRoom}`);
@@ -94,16 +96,27 @@ try {
   const user = await UserCollection.findOne({ id: players[0].matchID });
   if (!user) return;
   let matches = [...user.matches];
+  const nws=[...user.news]
+const news=[`What a thriller between ${players[0].team.toUpperCase()} and ${players[1].team.toUpperCase()}!`,
+    `A great knock from ${batter.name}, truly deserving the win!`,
+  `Masterclass by ${batter.name} what a performance!`,`${batter.name}'s all-round brilliance lights up the game!`,
+  `What a great clash between ${players[0].team.toUpperCase()} and ${players[1].team.toUpperCase()}!`,
+`A high-voltage clash ends in favour of ${players.filter((i)=> i.name == batter.name)[0].team.toUpperCase()}!`]
     const match = matches.find(
       i =>
         ((i.firstteam.name === batter.name && i.secondteam.name === bowler.name) ||
         (i.firstteam.name === bowler.name && i.secondteam.name === batter.name)) && i.winner == ""
     );
     if ( match) {
+       const ind=crypto.randomInt(0,news.length)
+nws.pop()
+nws.push({type:players[0].matchtype,content:news[ind],teamone:match.firstteam.team,teamtwo:match.secondteam.team,photo:players.filter((i)=> i.name == batter.name)[0].player})
       match.winner = batter.team;
       match.loser = bowler.team;
     }
   user.matches = matches;
+  user.news=nws
+user.markModified("news")
 user.markModified("matches");
 
   await user.save();
@@ -156,16 +169,27 @@ try {
   const user = await UserCollection.findOne({ id: players[0].matchID });
   if (!user) return;
   let matches = [...user.matches];
+  const nws=[...user.news]
+const news=[`What a thriller between ${players[0].team.toUpperCase()} and ${players[1].team.toUpperCase()}!`,
+    `A great knock from ${bowler.name}, truly deserving the win!`,
+  `Masterclass by ${bowler.name} what a performance!`,`${bowler.name}'s all-round brilliance lights up the game!`,
+  `What a great clash between ${players[0].team.toUpperCase()} and ${players[1].team.toUpperCase()}!`,
+`A high-voltage clash ends in favour of ${players.filter((i)=> i.name == bowler.name)[0].team.toUpperCase()}!`]
     const match = matches.find(
       i =>
         ((i.firstteam.name === batter.name && i.secondteam.name === bowler.name) ||
         (i.firstteam.name === bowler.name && i.secondteam.name === batter.name)) && i.winner == ""
     );
     if ( match) {
+       const ind=crypto.randomInt(0,news.length)
+nws.pop()
+nws.push({type:players[0].matchtype,content:news[ind],teamone:match.firstteam.team,teamtwo:match.secondteam.team,photo:players.filter((i)=> i.name == bowler.name)[0].player})
       match.winner = bowler.team;
       match.loser = batter.team;
     }
   user.matches = matches;
+  user.news=nws;
+user.markModified("news")
 user.markModified("matches");
 
   await user.save();
