@@ -102,7 +102,7 @@ try {
   let matches = [...user.matches];
   const nws=[...user.news]
 const news=[`What a thriller between ${players[0].team.toUpperCase()} and ${players[1].team.toUpperCase()}!`,
-    `A great knock from ${batter.name}, truly deserving the MoTM!`,
+    `A great knock from ${batter.name}, truly deserving the win!`,
   `Masterclass by ${batter.name} what a performance!`,`${batter.name}'s all-round brilliance lights up the game!`,
   `What a great clash between ${players[0].team.toUpperCase()} and ${players[1].team.toUpperCase()}!`,
 `A high-voltage clash ends in favour of ${players.filter((i)=> i.name == batter.name)[0].team.toUpperCase()}!`]
