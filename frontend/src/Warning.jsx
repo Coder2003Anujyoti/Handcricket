@@ -1,5 +1,5 @@
 import React from "react";
-import { isMobile } from "react-device-detect";
+import { isDesktop, isMobile } from "react-device-detect";
 import { useMediaQuery } from "react-responsive";
 import { MdWarningAmber } from "react-icons/md"; // ⚠️ Warning icon
 
@@ -8,7 +8,7 @@ const Warning = ({ children }) => {
   const isMobileView = useMediaQuery({ query: "(max-width: 428px)" });
 
   // Show mobile content if device is mobile OR viewport is small
-  const shouldShowMobile = isMobile || isMobileView;
+  const shouldShowMobile = isMobile || isMobileView || isDesktop;
 
   return shouldShowMobile ? (
     children
