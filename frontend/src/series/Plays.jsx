@@ -249,6 +249,24 @@ className={`px-4 py-2 font-bold  ${mode === "result" ? 'border-b border-b-white 
     </div>
   </>
 }
+{
+  val[0].news.length  == 0 && <>
+  <p className="text-center text-sm text-white font-bold">Latest News</p>
+  <div className="flex flex-col ml-2 mr-2 gap-4 my-3 md:my-6 lg:px-20 lg:ml-16 md:ml-6 md:justify-center md:gap-8 md:items-center lg:gap-10 lg:flex-row lg:flex-wrap">
+   <div className="w-full bg-slate-800 flex flex-row p-2 rounded-md flex-wrap lg:w-96 lg:h-48 md:w-96 md:h-48 md:p-2">
+  <div className="w-full h-1/2 flex flex-row items-center justify-center gap-2">
+  <img src={teamicons.filter((i)=> i.team == val[0].contestants[0].team)[0].image} className="w-24 h-24 " />
+   <img src="Icons/trophy.webp" className="w-10 h-10"/>
+  <img src={teamicons.filter((i)=> i.team == val[0].contestants[1].team)[0].image} className="w-24 h-24 " />
+  </div>
+   <div className="h-1/2 flex flex-col items-center justify-center p-2  gap-1">
+   <p className="text-sm text-white font-bold">💥It’s time for the ultimate face-off!
+Two teams, three thrilling games ⚔️ one champion to rule!</p>
+   </div>
+    </div>
+    </div>
+  </>
+}
 </>
 }
 { mode== "matches" && <> 
