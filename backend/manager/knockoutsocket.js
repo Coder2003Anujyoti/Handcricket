@@ -11,6 +11,8 @@ module.exports=(io,socket)=>{
     const player=msg.player
     const matchID=msg.matchID
     const matchtype=msg.matchtype
+      const teamone=msg.teamone
+    const teamtwo=msg.teamtwo
     let assignedRoom=null;
   for (const roomID in rooms) {
     const existingPlayer = rooms[roomID].find(p => p.name === name);
@@ -20,7 +22,7 @@ module.exports=(io,socket)=>{
     }
   }
     for(const roomID in rooms){
-      if(rooms[roomID].length<2){
+      if(rooms[roomID].length<2 && (rooms[roomID].filter((i)=> i.team == teamone || i.team==teamtwo).length > 0)){
         assignedRoom=roomID;
         break;
       }

@@ -126,7 +126,7 @@ useEffect(() => {
 }, []);
 const add_Name=(i,it)=>{
   if (disable==false) {
-  socket.emit('joinRoom', {name:id,team:i,player:it,matchID,matchtype});
+  socket.emit('joinRoom', {name:id,team:i,player:it,matchID,matchtype,teamone:idteam,teamtwo:adminteam});
     setDisable(true)
     }
 }
