@@ -22,7 +22,7 @@ module.exports=(io,socket)=>{
     }
   }
     for(const roomID in rooms){
-      if(rooms[roomID].length<2 && (rooms[roomID].filter((i)=> i.team == teamone || i.team==teamtwo).length > 0)){
+      if(rooms[roomID].length<2 && (rooms[roomID].filter((i)=> (i.team == teamone || i.team==teamtwo) && i.matchID == matchID).length > 0)){
         assignedRoom=roomID;
         break;
       }
