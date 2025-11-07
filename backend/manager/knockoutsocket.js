@@ -102,7 +102,7 @@ const news=[`What a thriller between ${players[0].team.toUpperCase()} and ${play
 `A high-voltage clash ends in favour of ${players.filter((i)=> i.name == batter.name)[0].team.toUpperCase()}!`]
 if(user.matches.filter((i)=> i.winner == "").length >0){
 user.matches=user.matches.map((i)=>{
-  if(i.firstteam.name == batter.name || i.secondteam.name== batter.name){
+  if((i.firstteam.name == batter.name || i.secondteam.name== batter.name) && i.winner===""){
 const ind=crypto.randomInt(0,news.length)
 nws.pop()
 nws.push({type:players[0].matchtype,content:news[ind],teamone:i.firstteam.team,teamtwo:i.secondteam.team,photo:players.filter((i)=> i.name == batter.name)[0].player})
@@ -117,14 +117,14 @@ nws.push({type:players[0].matchtype,content:news[ind],teamone:i.firstteam.team,t
 console.log(user)
 }
 else{
-  if(user.matches.filter((i)=>i.winner ==batter.team).length > 0){
+  if(user.matches.filter((i)=>i.winner ==batter.team).length > 0 && user.winner == ""){
 const ind=crypto.randomInt(0,news.length)
 nws.pop()
 nws.push({type:players[0].matchtype,content:news[ind],teamone:user.matches[0].winner,teamtwo:user.matches[1].winner,photo:players.filter((i)=> i.name == batter.name)[0].player})
     user.winner=batter.team;
     user.runnerup= players.filter((i)=> i.team != batter.team)[0].team
   }
-  else if(user.matches.filter((i)=>i.loser ==batter.team).length > 0)
+  else if(user.matches.filter((i)=>i.loser ==batter.team).length > 0 && user.thirdplace == "")
   { const ind=crypto.randomInt(0,news.length)
 nws.pop()
 nws.push({type:players[0].matchtype,content:news[ind],teamone:user.matches[0].loser,teamtwo:user.matches[1].loser,photo:players.filter((i)=> i.name == batter.name)[0].player})
@@ -189,7 +189,7 @@ const news=[`What a thriller between ${players[0].team.toUpperCase()} and ${play
 `A high-voltage clash ends in favour of ${players.filter((i)=> i.name == bowler.name)[0].team.toUpperCase()}!`]
 if(user.matches.filter((i)=> i.winner == "").length >0){
 user.matches=user.matches.map((i)=>{
-  if( i.firstteam.name == bowler.name || i.secondteam.name== bowler.name){
+  if((i.firstteam.name == bowler.name || i.secondteam.name== bowler.name) && i.winner == ""){
 const ind=crypto.randomInt(0,news.length)
 nws.pop()
 nws.push({type:players[0].matchtype,content:news[ind],teamone:i.firstteam.team,teamtwo:i.secondteam.team,photo:players.filter((i)=> i.name == bowler.name)[0].player})
@@ -200,7 +200,7 @@ nws.push({type:players[0].matchtype,content:news[ind],teamone:i.firstteam.team,t
 })
 }
 else{
-  if(user.matches.filter((i)=>i.winner ==bowler.team).length > 0){
+  if(user.matches.filter((i)=>i.winner ==bowler.team).length > 0 && user.winner == ""){
   const ind=crypto.randomInt(0,news.length)
 nws.pop()
 nws.push({type:players[0].matchtype,content:news[ind],teamone:user.matches[0].winner,teamtwo:user.matches[1].winner,photo:players.filter((i)=> i.name == bowler.name)[0].player})
@@ -208,7 +208,7 @@ nws.push({type:players[0].matchtype,content:news[ind],teamone:user.matches[0].wi
     user.runnerup= players.filter((i)=> i.team != bowler.team)[0].team
     
   }
-  else if(user.matches.filter((i)=>i.loser ==bowler.team).length > 0)
+  else if(user.matches.filter((i)=>i.loser ==bowler.team).length > 0 && user.thirdplace == "")
   {
     const ind=crypto.randomInt(0,news.length)
 nws.pop()

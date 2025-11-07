@@ -115,10 +115,9 @@ const news=[`What a thriller between ${players[0].team.toUpperCase()} and ${play
 
     const match = knockouts.find(
       i =>
-        (i.firstteam.name === batter.name && i.secondteam.name === bowler.name) ||
-        (i.firstteam.name === bowler.name && i.secondteam.name === batter.name)
+       ((i.firstteam.name === batter.name && i.secondteam.name === bowler.name) ||
+        (i.firstteam.name === bowler.name && i.secondteam.name === batter.name)) && i.winner === ""
     );
-
     if (playerone && playertwo && match) {
       playerone.matches += 1;
       playertwo.matches += 1;
@@ -146,8 +145,8 @@ nws.push({type:players[0].matchtype,content:news[ind],teamone:match.firstteam.te
 
     const match = knockouts.find(
       i =>
-        (i.firstteam.name === batter.name && i.secondteam.name === bowler.name) ||
-        (i.firstteam.name === bowler.name && i.secondteam.name === batter.name)
+       ((i.firstteam.name === batter.name && i.secondteam.name === bowler.name) ||
+        (i.firstteam.name === bowler.name && i.secondteam.name === batter.name)) && i.winner===""
     );
 
     if (playerone && playertwo && match) {
@@ -197,7 +196,7 @@ nws.push({type:players[0].matchtype,content:news[ind],teamone:match.firstteam.te
   // STEP 3: Knockouts finished (Final or Third-Place result)
   else if (knockouts.filter(i => i.winner === "").length === 0) {
     const match = matches.find(
-      it => it.firstteam.name === batter.name || it.secondteam.name === batter.name
+      it => (it.firstteam.name === batter.name || it.secondteam.name === batter.name) && it.winner === ""
     );
 
     if (match) {
@@ -298,8 +297,8 @@ const news=[`What a thriller between ${players[0].team.toUpperCase()} and ${play
 
     const match = knockouts.find(
       i =>
-        (i.firstteam.name === batter.name && i.secondteam.name === bowler.name) ||
-        (i.firstteam.name === bowler.name && i.secondteam.name === batter.name)
+       ((i.firstteam.name === batter.name && i.secondteam.name === bowler.name) ||
+        (i.firstteam.name === bowler.name && i.secondteam.name === batter.name)) && i.winner==""
     );
 
     if (playerone && playertwo && match) {
@@ -332,8 +331,8 @@ nws.push({type:players[0].matchtype,content:news[ind],teamone:match.firstteam.te
 
     const match = knockouts.find(
       i =>
-        (i.firstteam.name === batter.name && i.secondteam.name === bowler.name) ||
-        (i.firstteam.name === bowler.name && i.secondteam.name === batter.name)
+        ((i.firstteam.name === batter.name && i.secondteam.name === bowler.name) ||
+        (i.firstteam.name === bowler.name && i.secondteam.name === batter.name)) && i.winner===""
     );
 
     if (playerone && playertwo && match) {
@@ -386,7 +385,7 @@ nws.push({type:players[0].matchtype,content:news[ind],teamone:match.firstteam.te
   // -------------------------------
   else if (knockouts.filter(i => i.winner === "").length === 0) {
     const match = matches.find(
-      it => it.firstteam.name === bowler.name || it.secondteam.name === bowler.name
+      it => (it.firstteam.name === bowler.name || it.secondteam.name === bowler.name) && it.winner==""
     );
 
     if (match) {
