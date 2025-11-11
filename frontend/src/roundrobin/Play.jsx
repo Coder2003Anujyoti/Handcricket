@@ -181,7 +181,7 @@ className={`px-4 py-2 font-bold  ${mode === "result" ? 'border-b border-b-white 
 <td className="p-2">{team.win}</td>
 <td className="p-2">{team.lose}</td>
 <td className="p-2">{2*team.win}</td>
-<td className="p-2">{team.nrr=="0" ? "0.00" : team.nrr}</td>
+<td className="p-2">{team.nrr=="0" ? "0.00" : team.nrr.toFixed(2)}</td>
 </tr>))}
 </tbody>
 </table>
