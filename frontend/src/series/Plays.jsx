@@ -314,7 +314,7 @@ Two teams, three thrilling games ⚔️ one champion to rule!</p>
 </div>
 { it.winner != "" && <div className="flex justify-center items-center flex-col gap-2">
 <p className="text-center text-sm text-white font-bold">Winner</p>
-<img src={`Logos/${it.winner}.webp`} className="w-10 h-10" />
+<img src={`Logos/${it.winner}.webp`} className="w-16 h-16" />
 </div> }
 </div>
   </>)

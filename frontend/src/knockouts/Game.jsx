@@ -426,7 +426,7 @@ className={`px-4 py-2 font-bold  ${mode === "result" ? 'border-b border-b-white 
 </div>
 { val[0].matches[0].winner != "" && <div className="flex justify-center items-center flex-col gap-2">
 <p className="text-center text-sm text-white font-bold">Winner</p>
-<img src={`Logos/${val[0].matches[0].winner}.webp`} className="w-10 h-10" />
+<img src={`Logos/${val[0].matches[0].winner}.webp`} className="w-16 h-16" />
 </div> }
 </div>
 <div className="flex gap-y-6 my-10 flex-col lg:items-center lg:justify-center">
@@ -450,7 +450,7 @@ className={`px-4 py-2 font-bold  ${mode === "result" ? 'border-b border-b-white 
 </div>
 { val[0].matches[1].winner != "" && <div className="flex justify-center items-center flex-col gap-2">
 <p className="text-center text-sm text-white font-bold">Winner</p>
-<img src={`Logos/${val[0].matches[1].winner}.webp`} className="w-10 h-10" />
+<img src={`Logos/${val[0].matches[1].winner}.webp`} className="w-16 h-16" />
 </div> }
 </div>
 </div>
@@ -480,7 +480,7 @@ className={`px-4 py-2 font-bold  ${mode === "result" ? 'border-b border-b-white 
 </div>
 { val[0].thirdplace != "" && <div className="flex justify-center items-center flex-col gap-2">
 <p className="text-center text-sm text-white font-bold">Winner</p>
-<img src={`Logos/${val[0].thirdplace}.webp`} className="w-10 h-10" />
+<img src={`Logos/${val[0].thirdplace}.webp`} className="w-16 h-16" />
 </div> }
 </div>
 <div className="flex gap-y-6 my-10 flex-col lg:items-center lg:justify-center">
@@ -504,7 +504,7 @@ className={`px-4 py-2 font-bold  ${mode === "result" ? 'border-b border-b-white 
 </div>
 { val[0].winner != "" && <div className="flex justify-center items-center flex-col gap-2">
 <p className="text-center text-sm text-white font-bold">Winner</p>
-<img src={`Logos/${val[0].winner}.webp`} className="w-10 h-10" />
+<img src={`Logos/${val[0].winner}.webp`} className="w-16 h-16" />
 </div> }
 </div>
 </div>
