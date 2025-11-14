@@ -424,6 +424,10 @@ className={`px-4 py-2 font-bold  ${mode === "result" ? 'border-b border-b-white 
 <p className="text-center text-sm text-white font-bold">{val[0].matches[0].secondteam.name}</p>
 </div>
 </div>
+{ val[0].matches[0].winner != "" && <div className="flex justify-center items-center flex-col gap-2">
+<p className="text-center text-sm text-white font-bold">Winner</p>
+<img src={`Logos/${val[0].matches[0].winner}.webp`} className="w-10 h-10" />
+</div> }
 </div>
 <div className="flex gap-y-6 my-10 flex-col lg:items-center lg:justify-center">
 <div className="w-full flex justify-center items-center lg:w-80">
@@ -444,6 +448,10 @@ className={`px-4 py-2 font-bold  ${mode === "result" ? 'border-b border-b-white 
 <p className="text-center text-sm text-white font-bold">{val[0].matches[1].secondteam.name}</p>
 </div>
 </div>
+{ val[0].matches[1].winner != "" && <div className="flex justify-center items-center flex-col gap-2">
+<p className="text-center text-sm text-white font-bold">Winner</p>
+<img src={`Logos/${val[0].matches[1].winner}.webp`} className="w-10 h-10" />
+</div> }
 </div>
 </div>
 </>
@@ -470,6 +478,10 @@ className={`px-4 py-2 font-bold  ${mode === "result" ? 'border-b border-b-white 
 <p className="text-center text-sm text-white font-bold">{val[0].contestants.filter((i)=> i.team == val[0].matches[1].loser )[0].name}</p>
 </div>
 </div>
+{ val[0].thirdplace != "" && <div className="flex justify-center items-center flex-col gap-2">
+<p className="text-center text-sm text-white font-bold">Winner</p>
+<img src={`Logos/${val[0].thirdplace}.webp`} className="w-10 h-10" />
+</div> }
 </div>
 <div className="flex gap-y-6 my-10 flex-col lg:items-center lg:justify-center">
 <div className="w-full flex justify-center items-center lg:w-80">
@@ -490,6 +502,10 @@ className={`px-4 py-2 font-bold  ${mode === "result" ? 'border-b border-b-white 
 <p className="text-center text-sm text-white font-bold">{val[0].contestants.filter((i)=> i.team == val[0].matches[1].winner )[0].name}</p>
 </div>
 </div>
+{ val[0].winner != "" && <div className="flex justify-center items-center flex-col gap-2">
+<p className="text-center text-sm text-white font-bold">Winner</p>
+<img src={`Logos/${val[0].winner}.webp`} className="w-10 h-10" />
+</div> }
 </div>
 </div>
 </>

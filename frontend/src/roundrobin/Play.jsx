@@ -55,8 +55,8 @@ const join_room=async()=>{
 }
 useEffect(() => {
   if (!socket.connected) {
-    socket.connect();
-  }
+      socket.connect();
+    }
   socket.on("updatedrobin",(msg)=>{
     setVal([msg.user])
   })
@@ -387,6 +387,10 @@ className={`px-4 py-2 font-bold  ${mode === "result" ? 'border-b border-b-white 
 <p className="text-center text-sm text-white font-bold">{it.secondteam.name}</p>
 </div>
 </div>
+{ it.winner != "" && <div className="flex justify-center items-center flex-col gap-2">
+<p className="text-center text-sm text-white font-bold">Winner</p>
+<img src={`Logos/${it.winner}.webp`} className="w-10 h-10" />
+</div> }
 </div>
   </>)
   })
@@ -418,6 +422,10 @@ className={`px-4 py-2 font-bold  ${mode === "result" ? 'border-b border-b-white 
 <p className="text-center text-sm text-white font-bold">{it.secondteam.name}</p>
 </div>
 </div>
+{ it.winner != "" && <div className="flex justify-center items-center flex-col gap-2">
+<p className="text-center text-sm text-white font-bold">Winner</p>
+<img src={`Logos/${it.winner}.webp`} className="w-10 h-10" />
+</div> }
 </div>
   </>)
   })
