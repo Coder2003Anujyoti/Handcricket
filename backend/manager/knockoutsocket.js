@@ -94,6 +94,9 @@ else{
 })
 try{
 const user= await UserCollection.findOne({id:players[0].matchID})
+if(!user){
+  return;
+}
 const nws=[...user.news]
 const news=[`What a thriller between ${players[0].team.toUpperCase()} and ${players[1].team.toUpperCase()}!`,
     `A great knock from ${batter.name}, truly deserving the win!`,
@@ -182,6 +185,9 @@ else{
 })
 try{
 const user= await UserCollection.findOne({id:players[0].matchID})
+if(!user){
+  return;
+}
 const nws=[...user.news]
 const news=[`What a thriller between ${players[0].team.toUpperCase()} and ${players[1].team.toUpperCase()}!`,
     `A great knock from ${bowler.name}, truly deserving the win!`,
