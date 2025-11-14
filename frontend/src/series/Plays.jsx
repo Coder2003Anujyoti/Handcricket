@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import {HashLink} from 'react-router-hash-link'
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
+import {socket} from "../socket/socket"
 const Plays = ()=>{
   const [searchParams] = useSearchParams();
 const [loading,setLoading] = useState(true)
@@ -65,6 +66,23 @@ useEffect(()=>{
   join_room()
   sessionStorage.clear()
 },[id,name])
+useEffect(() => {
+  if (!socket.connected) {
+    socket.connect();
+  }
+  socket.on("updatedone",(msg)=>{
+    const result=msg.user
+   const table=result.contestants.map((i)=>{
+      return {team:i.team,
+      matches:result.matches.filter((it)=> (it.firstteam.name == i.name || it.secondteam.name== i.name) && it.winner !== "").length,
+      win:result.matches.filter((it)=> (it.firstteam.name == i.name || it.secondteam.name == i.name) && it.winner === i.team).length,
+      lose:result.matches.filter((it)=> (it.firstteam.name == i.name || it.secondteam.name == i.name) && it.loser === i.team).length
+      }
+    })
+    setVal([msg.user])
+    setChart(table)
+  })
+}, []);
 return(<>
     {loading==true && <>
    <div className="fixed inset-0  z-50 flex flex-col items-center justify-center text-white text-center overflow-hidden">

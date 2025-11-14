@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import {HashLink} from 'react-router-hash-link'
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
+import {socket} from "../socket/socket"
 const Play = ()=>{
   const [searchParams] = useSearchParams();
 const [loading,setLoading] = useState(true)
@@ -52,6 +53,14 @@ const join_room=async()=>{
   }
 }
 }
+useEffect(() => {
+  if (!socket.connected) {
+    socket.connect();
+  }
+  socket.on("updatedrobin",(msg)=>{
+    setVal([msg.user])
+  })
+}, []);
 useEffect(()=>{
   join_room()
   sessionStorage.clear()

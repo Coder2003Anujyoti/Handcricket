@@ -122,6 +122,7 @@ user.markModified("news")
 user.markModified("matches");
 
   await user.save();
+   io.emit("updatedone",{user})
 } catch (err) {
   console.error(err);
 }
@@ -195,6 +196,7 @@ user.markModified("news")
 user.markModified("matches");
 
   await user.save();
+   io.emit("updatedone",{user})
 } catch (err) {
   console.error(err);
 }

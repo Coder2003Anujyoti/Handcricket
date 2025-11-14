@@ -227,8 +227,8 @@ nws.push({type:players[0].matchtype,content:news[ind],teamone:match.firstteam.te
   user.markModified("contestants");
 user.markModified("knockouts");
 user.markModified("matches");
-
   await user.save();
+ io.emit("updatedrobin",{user})
 } catch (err) {
   console.error(err);
 }
@@ -416,9 +416,8 @@ nws.push({type:players[0].matchtype,content:news[ind],teamone:match.firstteam.te
   user.markModified("contestants");
 user.markModified("knockouts");
 user.markModified("matches");
-
-
   await user.save();
+  io.emit("updatedrobin",{user})
 } catch (err) {
   console.error(err);
 }

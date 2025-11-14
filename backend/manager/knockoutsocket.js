@@ -135,6 +135,7 @@ user.news=nws
 user.markModified("news")
 user.markModified("matches");
 await user.save()
+ io.emit("updatedknock",{user})
 }
 catch(err){
  console.log(err)
@@ -221,6 +222,7 @@ user.news=nws
 user.markModified("news")
 user.markModified("matches");
 await user.save()
+ io.emit("updatedknock",{user})
 }
 catch(err){
 console.log(err)
