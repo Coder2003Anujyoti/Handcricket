@@ -16,6 +16,7 @@ const participants={}
     participants[matchId] = participants[matchId].filter(
       (p) => p.socketId !== socket.id
     );
+     console.log(participants)
     io.emit("countround",{count:[...new Set(participants[matchId].map((i)=> i.name))].length});
     if (participants[matchId].length === 0) {
       delete participants[matchId];
