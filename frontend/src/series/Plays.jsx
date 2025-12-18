@@ -143,14 +143,6 @@ return(<>
     <>
     <div className="relative w-full bg-slate-800 flex items-center justify-between p-2 md:px-4 md:py-3">
   <img className="w-28 h-16" src={`Icons/Logo.webp`} />
-   <div className="flex items-center gap-2">
-  <div className="relative">
-    <div className="w-4 h-4 bg-green-500 rounded-full animate-pulse shadow-[0_0_10px_3px_rgba(34,197,94,0.8)]"></div>
-  </div>
-<span className="text-white text-lg font-semibold">
-  {Intl.NumberFormat("en", { notation: "compact" }).format(count)} online
-</span>
-</div>
   </div>
     <p className="text-center text-sm lg:text-base my-36 text-white font-bold">{msg}</p>
     </>
@@ -159,14 +151,6 @@ return(<>
   loading==false && val.length > 0 && <>
   <div className="relative w-full bg-slate-800 flex items-center justify-between p-2 md:px-4 md:py-3">
   <img className="w-28 h-16" src={`Icons/Logo.webp`} />
-   <div className="flex items-center gap-2">
-  <div className="relative">
-    <div className="w-4 h-4 bg-green-500 rounded-full animate-pulse shadow-[0_0_10px_3px_rgba(34,197,94,0.8)]"></div>
-  </div>
-<span className="text-white text-lg font-semibold">
-  {Intl.NumberFormat("en", { notation: "compact" }).format(count)} online
-</span>
-</div>
   </div>
  {mode=="profile" && <p className="text-center text-sm my-2 text-white font-bold p-2">Tournament ID-: {val[0].id}</p>}
   <div className="flex justify-evenly mt-4">
