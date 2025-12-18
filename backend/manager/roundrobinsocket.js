@@ -455,7 +455,7 @@ socket.once('disconnect', () => {
       p => p.socketId !== socket.id
     );
     io.to(socket.matchId).emit("countround", {
-      count: participants[socket.matchId].length
+       count:[...new Set(participants[socket.matchId].map((i)=> i.name))].length
     });
     if (participants[socket.matchId].length === 0) {
       delete participants[socket.matchId];
