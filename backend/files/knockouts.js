@@ -1,4 +1,5 @@
 const express= require('express');
+const crypto=require('crypto')
 const users=require("../data/Users.json")
 const router = express.Router();
 const UserCollection= require('../schemas/users.js');
@@ -16,7 +17,7 @@ let teams=["Mi","Csk","Kkr","Dc","Gt","Lsg","Rr","Srh","Pbks","Rcb"]
 router.post("/add-knockouts-room",async(req,res)=>{
 const {id,password}=req.body;
 try{
-const user=await UserCollection.findOne({id})
+const user = await UserCollection.findOne({id});
 if(user){
  return res.json({message:"Room already added",type:"error"})
 }

@@ -10,7 +10,7 @@ function Create() {
  const [tournamentpassword,setTournamentpassword]=useState("")
  const [createlock,setCreatelock]=useState(false)
 const [joinlock,setJoinlock]=useState(false)
- const [deletelock,setDeletelock]=useState(false)
+const [deletelock,setDeletelock]=useState(false)
  const navigate = useNavigate()
  useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -149,7 +149,7 @@ finally{
   <div className="relative w-full bg-slate-800 flex items-center justify-between p-2 z-50 md:px-4 md:py-3">
   <img className="w-28 h-16" src={`Icons/Logo.webp`} />
   </div>
-  <div className="flex justify-evenly mt-4">
+  <div className="flex justify-evenly mt-4 overflow-x-auto">
 <button onClick={() => {setMode("create")}}
 className={`px-4 py-2 font-bold  ${mode === "create" ? 'border-b border-b-white text-white' : 'text-white border-b border-b-transparent'}`}>Create</button>
 <button onClick={() => setMode("join")}
@@ -161,7 +161,7 @@ className={`px-4 py-2 font-bold  ${mode === "delete" ? 'border-b border-b-white 
   </div>
   {
   mode=="create" ? (<>
-  <div className="max-w-xl w-full mx-auto mt-4 px-4 sm:px-6 py-4 rounded-xl space-y-6">
+  <div className="max-w-xl w-full mx-auto mt-2 px-4 sm:px-6 py-4 rounded-xl space-y-6">
   <div className="w-full flex items-center justify-center">
   <img src="Icons/stadium.webp" className="w-36 h-36" />
   </div>
@@ -195,7 +195,7 @@ value={tournamentid} onChange={(e) => setTournamentid(e.target.value.replace(/\s
 <div className="flex flex-row mt-6 justify-center gap-3 ">
 <button onClick={join_room} disabled={joinlock} className="bg-slate-800 text-white text-base px-6 py-2 font-bold rounded-md shadow-md">Join Room</button>
   </div>
-  </>) :
+  </>) : 
   (<>
     <div className="max-w-xl w-full mx-auto mt-4 px-4 sm:px-6 py-4 rounded-xl space-y-6">
   <div className="w-full flex items-center justify-center">

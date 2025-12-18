@@ -12,6 +12,7 @@ const [val,setVal]=useState([])
 const [chart,setChart]=useState([])
 const [msg,setMsg]=useState("")
 const [mode,setMode]=useState("profile")
+const [count,setCount]=useState(0)
 const id = searchParams.get("id");       
 const name = searchParams.get("name");
 const rawTeams = searchParams.get("teams");
@@ -70,6 +71,7 @@ useEffect(() => {
   if (!socket.connected) {
     socket.connect();
   }
+  socket.emit("increseries", {id, name}); 
   socket.on("updatedone",(msg)=>{
     const result=msg.user
    const table=result.contestants.map((i)=>{
@@ -82,6 +84,11 @@ useEffect(() => {
     setVal([msg.user])
     setChart(table)
   })
+  socket.on("countseries",(msg)=>{
+        setCount(msg.count)
+      })
+    return ()=>
+    socket.disconnect()
 }, []);
 return(<>
     {loading==true && <>
@@ -136,6 +143,14 @@ return(<>
     <>
     <div className="relative w-full bg-slate-800 flex items-center justify-between p-2 md:px-4 md:py-3">
   <img className="w-28 h-16" src={`Icons/Logo.webp`} />
+   <div className="flex items-center gap-2">
+  <div className="relative">
+    <div className="w-4 h-4 bg-green-500 rounded-full animate-pulse shadow-[0_0_10px_3px_rgba(34,197,94,0.8)]"></div>
+  </div>
+<span className="text-white text-lg font-semibold">
+  {Intl.NumberFormat("en", { notation: "compact" }).format(count)} online
+</span>
+</div>
   </div>
     <p className="text-center text-sm lg:text-base my-36 text-white font-bold">{msg}</p>
     </>
@@ -144,6 +159,14 @@ return(<>
   loading==false && val.length > 0 && <>
   <div className="relative w-full bg-slate-800 flex items-center justify-between p-2 md:px-4 md:py-3">
   <img className="w-28 h-16" src={`Icons/Logo.webp`} />
+   <div className="flex items-center gap-2">
+  <div className="relative">
+    <div className="w-4 h-4 bg-green-500 rounded-full animate-pulse shadow-[0_0_10px_3px_rgba(34,197,94,0.8)]"></div>
+  </div>
+<span className="text-white text-lg font-semibold">
+  {Intl.NumberFormat("en", { notation: "compact" }).format(count)} online
+</span>
+</div>
   </div>
  {mode=="profile" && <p className="text-center text-sm my-2 text-white font-bold p-2">Tournament ID-: {val[0].id}</p>}
   <div className="flex justify-evenly mt-4">
@@ -302,6 +325,7 @@ Two teams, three thrilling games ⚔️ one champion to rule!</p>
 <img src={teamicons.filter((i)=> i.team == it.firstteam.team)[0].image} className="w-32 h-32" />
 <img src={`Logos/${teamicons.filter((i)=> i.team == it.firstteam.team)[0].team}.webp`} className="w-10 h-10" />
 <p className="text-center text-sm text-white font-bold">{it.firstteam.name}</p>
+{ it.winner!= "" && <p className="text-center text-sm text-white font-bold">{(it.winner==it.firstteam.team)?"Winner":"Loser"}</p>}
 </div>
 <div className="flex justify-center items-center">
 <p className="text-center text-sm text-white font-bold">V/S</p>
@@ -310,12 +334,9 @@ Two teams, three thrilling games ⚔️ one champion to rule!</p>
 <img src={teamicons.filter((i)=> i.team == it.secondteam.team)[0].image} className="w-32 h-32" />
 <img src={`Logos/${teamicons.filter((i)=> i.team == it.secondteam.team)[0].team}.webp`} className="w-10 h-10" />
 <p className="text-center text-sm text-white font-bold">{it.secondteam.name}</p>
+{ it.winner!= "" && <p className="text-center text-sm text-white font-bold">{(it.winner==it.secondteam.team)?"Winner":"Loser"}</p>}
 </div>
 </div>
-{ it.winner != "" && <div className="flex justify-center items-center flex-col gap-2">
-<p className="text-center text-sm text-white font-bold">Winner</p>
-<img src={`Logos/${it.winner}.webp`} className="w-16 h-16" />
-</div> }
 </div>
   </>)
   })
