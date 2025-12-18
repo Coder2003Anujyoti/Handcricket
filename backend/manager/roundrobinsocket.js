@@ -3,8 +3,19 @@ const crypto=require("crypto")
 const rooms={}
 const turn={}
 const game={}
+const participants={}
 const UserCollection=require('../schemas/players');
 module.exports=(io,socket)=>{
+   socket.on("increround", ({ id, name }) => {
+    socket.matchId = id;
+    participants[id] = participants[id] || [];
+      participants[id].push({
+        socketId: socket.id,
+        name
+      });
+    console.log(participants)
+    io.emit("countround", {count:[...new Set(participants[id].map((i)=> i.name))].length});
+  });
   socket.on('dualjoinRooms', (msg) => {
     const name=msg.name
     const team=msg.team
@@ -439,7 +450,17 @@ else{
 });
 socket.once('disconnect', () => {
   console.log("Player disconnected:", socket.id);
-
+ if (socket.matchId && participants[socket.matchId]) {
+    participants[socket.matchId] = participants[socket.matchId].filter(
+      p => p.socketId !== socket.id
+    );
+    io.to(socket.matchId).emit("countround", {
+      count: participants[socket.matchId].length
+    });
+    if (participants[socket.matchId].length === 0) {
+      delete participants[socket.matchId];
+    }
+  }
     for (const roomId in rooms) {
       const index = rooms[roomId].findIndex(p => p.id === socket.id);
       if (index !== -1) {
@@ -454,5 +475,6 @@ socket.once('disconnect', () => {
       }
     } // or just reuse logic
     console.log(rooms)
+  console.log(participants)
 });
 }
