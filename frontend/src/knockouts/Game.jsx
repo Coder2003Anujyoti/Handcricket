@@ -83,6 +83,7 @@ useEffect(() => {
     })
     setVal([msg.user])
     setChart(table)
+    setMode((prev) => (msg.user.winner !== "" && msg.user.runnerup !== "" && msg.user.thirdplace !== "" ) ? "result" : prev)
   }
   })
    socket.on("countknockout",(msg)=>{

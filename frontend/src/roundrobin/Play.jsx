@@ -62,6 +62,7 @@ useEffect(() => {
   socket.on("updatedrobin",(msg)=>{
     if(msg.user.id == id){
     setVal([msg.user])
+    setMode((prev) => (msg.user.winner !== "" && msg.user.runnerup !== "" && msg.user.thirdplace !== "" ) ? "result" : prev)
     }
   })
    socket.on("countround",(msg)=>{

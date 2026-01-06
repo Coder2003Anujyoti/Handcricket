@@ -84,6 +84,7 @@ useEffect(() => {
     })
     setVal([msg.user])
     setChart(table)
+     setMode((prev) => (msg.user.matches.filter((i)=> i.winner == "").length == 0) ? "result" : prev)
   }
   })
   socket.on("countseries",(msg)=>{
