@@ -134,15 +134,16 @@ user.markModified("matches");
 
   await user.save();
    io.emit("updatedone",{user})
-} catch (err) {
-  console.error(err);
-}
-
-delete rooms[roomId]
+    process.nextTick(()=>{
+  delete rooms[roomId]
   delete game[roomId]
   delete turn[roomId]
   io.in(roomId).socketsLeave(roomId);
   return;
+ })
+} catch (err) {
+  console.error(err);
+}
 }
   players.forEach((c)=>c.choice=0)
     io.to(players[turn[roomId]].id).emit('choiceturn',"Your Turn")
@@ -208,15 +209,17 @@ user.markModified("matches");
 
   await user.save();
    io.emit("updatedone",{user})
-} catch (err) {
-  console.error(err);
-}
-}
+    process.nextTick(()=>{
   delete rooms[roomId]
   delete game[roomId]
   delete turn[roomId]
   io.in(roomId).socketsLeave(roomId);
   return;
+ })
+} catch (err) {
+  console.error(err);
+}
+}
 }
           io.to(players[turn[roomId]].id).emit('choiceturn',"Your Turn")
      io.to(players[(turn[roomId]+1)%2].id).emit('choiceturn',"Opposition Turn")

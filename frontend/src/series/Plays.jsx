@@ -73,6 +73,7 @@ useEffect(() => {
   }
   socket.emit("increseries", {id, name}); 
   socket.on("updatedone",(msg)=>{
+    if(msg.user.id == id){
     const result=msg.user
    const table=result.contestants.map((i)=>{
       return {team:i.team,
@@ -83,6 +84,7 @@ useEffect(() => {
     })
     setVal([msg.user])
     setChart(table)
+  }
   })
   socket.on("countseries",(msg)=>{
         setCount(msg.count)

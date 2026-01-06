@@ -240,15 +240,16 @@ user.markModified("knockouts");
 user.markModified("matches");
   await user.save();
  io.emit("updatedrobin",{user})
-} catch (err) {
-  console.error(err);
-}
-
-delete rooms[roomId]
+  process.nextTick(()=>{
+  delete rooms[roomId]
   delete game[roomId]
   delete turn[roomId]
   io.in(roomId).socketsLeave(roomId);
   return;
+ })
+} catch (err) {
+  console.error(err);
+}
 }
   players.forEach((c)=>c.choice=0)
     io.to(players[turn[roomId]].id).emit('dualchoiceturns',"Your Turn")
@@ -429,15 +430,17 @@ user.markModified("knockouts");
 user.markModified("matches");
   await user.save();
   io.emit("updatedrobin",{user})
-} catch (err) {
-  console.error(err);
-}
-}
+   process.nextTick(()=>{
   delete rooms[roomId]
   delete game[roomId]
   delete turn[roomId]
   io.in(roomId).socketsLeave(roomId);
   return;
+ })
+} catch (err) {
+  console.error(err);
+}
+}
 }
           io.to(players[turn[roomId]].id).emit('dualchoiceturns',"Your Turn")
      io.to(players[(turn[roomId]+1)%2].id).emit('dualchoiceturns',"Opposition Turn")

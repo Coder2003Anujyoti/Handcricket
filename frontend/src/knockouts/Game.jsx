@@ -65,12 +65,14 @@ useEffect(()=>{
   join_room()
   sessionStorage.clear()
 },[id,name])
+
 useEffect(() => {
   if (!socket.connected) {
     socket.connect();
   }
     socket.emit("increknockout", {id, name}); 
   socket.on("updatedknock",(msg)=>{
+    if(msg.user.id == id){
     const result=msg.user
      const table=result.contestants.map((i)=>{
       return {team:i.team,
@@ -81,13 +83,13 @@ useEffect(() => {
     })
     setVal([msg.user])
     setChart(table)
+  }
   })
    socket.on("countknockout",(msg)=>{
     setCount(msg.count)
   })
 return ()=>
 socket.disconnect()
-
 }, []);
   return (
   <>

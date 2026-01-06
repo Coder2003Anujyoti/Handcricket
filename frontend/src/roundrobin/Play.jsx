@@ -60,7 +60,9 @@ useEffect(() => {
     }
   socket.emit("increround", {id, name}); 
   socket.on("updatedrobin",(msg)=>{
+    if(msg.user.id == id){
     setVal([msg.user])
+    }
   })
    socket.on("countround",(msg)=>{
       setCount(msg.count)

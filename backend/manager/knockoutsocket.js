@@ -140,15 +140,18 @@ user.markModified("news")
 user.markModified("matches");
 await user.save()
  io.emit("updatedknock",{user})
-}
-catch(err){
- console.log(err)
-}
-delete rooms[roomId]
+  io.emit("updatedknock",{user})
+ process.nextTick(()=>{
+  delete rooms[roomId]
   delete game[roomId]
   delete turn[roomId]
   io.in(roomId).socketsLeave(roomId);
   return;
+ })
+}
+catch(err){
+ console.log(err)
+}
 }
   players.forEach((c)=>c.choice=0)
     io.to(players[turn[roomId]].id).emit('dualchoiceturn',"Your Turn")
@@ -230,16 +233,18 @@ user.markModified("news")
 user.markModified("matches");
 await user.save()
  io.emit("updatedknock",{user})
-}
-catch(err){
-console.log(err)
-}
-}
+ process.nextTick(()=>{
   delete rooms[roomId]
   delete game[roomId]
   delete turn[roomId]
   io.in(roomId).socketsLeave(roomId);
   return;
+ })
+}
+catch(err){
+console.log(err)
+}
+}
 }
           io.to(players[turn[roomId]].id).emit('dualchoiceturn',"Your Turn")
      io.to(players[(turn[roomId]+1)%2].id).emit('dualchoiceturn',"Opposition Turn")
