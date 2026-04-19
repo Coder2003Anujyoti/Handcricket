@@ -6,6 +6,7 @@ const knockouts=require("./files/knockouts.js")
 const roundrobin=require("./files/roundrobin.js")
 const oneversusone=require("./files/oneversusone.js")
 const aliens=require("./files/aliens.js")
+const pokemons=require("./files/pokemons.js")
 const bodyParser = require('body-parser');
 const cors=require('cors');
 const app = express();
@@ -22,6 +23,7 @@ app.use(knockouts)
 app.use(roundrobin)
 app.use(aliens)
 app.use(oneversusone)
+app.use(pokemons)
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
