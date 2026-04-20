@@ -471,8 +471,14 @@ socket.once('disconnect', () => {
 
         if (rooms[roomId].length === 0) {
           delete rooms[roomId];
+        
+  delete game[roomId]
+  delete turn[roomId]
         } else {
           socket.to(roomId).emit("dualLefts", "A player has been disconnected...");
+          delete rooms[roomId]
+  delete game[roomId]
+  delete turn[roomId]
         }
         break; // Stop loop after finding the room
       }
